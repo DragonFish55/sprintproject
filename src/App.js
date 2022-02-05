@@ -2,7 +2,7 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import LandingPage from './components/LandingPage/LandingPage';
-import About from './components/About/About';
+import AboutPage from './components/AboutPage/AboutPage';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route exact path = '/' element={<LandingPage />}></Route>
-        <Route exact path = 'about' element={<About />}></Route>
+        <Route exact path = 'about' element={<AboutPage />}></Route>
         <Route path = "*" element={<ErrorPage />}></Route>
       </Routes>
     </div>

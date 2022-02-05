@@ -1,3 +1,6 @@
 .landing{
     background-color: gray;
+    font-size: root(--ff1);
+    height: 25%;
+    width: 100%;
 }
