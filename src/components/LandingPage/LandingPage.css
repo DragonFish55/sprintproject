@@ -1,6 +1,13 @@
-.landing{
+.header_outer{
     background-color: gray;
     font-size: root(--ff1);
-    height: 25%;
+    min-height: 5rem;
+    height: 2%;
+    width: 100%;
+    position:relative;
+}
+
+.landing{
+    height: 100%;
     width: 100%;
 }
