@@ -1,4 +1,5 @@
 import './HeaderComp.css';
+import {Link} from 'react-router-dom'
 
 function HeaderComp() {
   return (
@@ -9,7 +10,9 @@ function HeaderComp() {
           </div>
           <div className = "signin">
             <p className="usertag" >Welcome <span id = "user"></span></p>
-            <button id = "signin">Signin</button>
+            <Link to = '/signin'>
+              <button id = "signin">Signin</button>
+            </Link>
             <button class = "signout" id = "signout">Signout</button>
           </div>
         </div>
