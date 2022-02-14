@@ -13,11 +13,33 @@ function HeaderComp() {
             <Link to = '/signin'>
               <button id = "signin">Signin</button>
             </Link>
-            <button class = "signout" id = "signout">Signout</button>
+            <button onClick={checkLogout} className = "signout" id = "signout">Logout</button>
           </div>
         </div>
     </div>
   );
+
+  function checkLogout(){
+    const user = document.getElementById('userinput').value;
+    const password = document.getElementById('passinput').value;
+    const data = {username:user, password:password};
+    $.ajax({
+      //url: 'https://lit-dawn-76000.herokuapp.com/api/logout',
+      url: 'http://127.0.0.1:5000/api/logout',
+      type: 'POST',
+      crossorigin: true,
+      cache:false,
+      dataType: "json",
+      contentType: "application/json",
+      data:JSON.stringify(data),
+      success: function(data){
+        console.log(data);
+      },
+      error: function(request,error){
+        console.log(error);
+      }
+    })
+  };
 }
 
 export default HeaderComp;
