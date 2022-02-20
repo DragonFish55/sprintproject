@@ -11,7 +11,7 @@ function LandingPage(props) {
   return (
     <div className="landing">
         <div className = "header_outer">
-          <HeaderComp username = {state.name}></HeaderComp>
+          <HeaderComp username = {state && state.name}></HeaderComp>
         </div>
         <div className='mainpage'>
           <p>Hello World</p>

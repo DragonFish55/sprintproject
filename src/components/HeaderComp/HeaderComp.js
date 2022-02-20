@@ -8,7 +8,7 @@ function HeaderComp(props) {
 
   const [logout, setLogout] = useState("")
   const navigate = useNavigate();
-
+    console.log(props.username)
   return (
     <div className="header">
         <div className = "innerheader">
@@ -17,15 +17,18 @@ function HeaderComp(props) {
           </div>
           <div className = "sign_main">
             {
-              props.username !== "" && <p className="usertag" >Hello <span id = "user">{props.username}</span>!</p>
+              props.username && props.username !== "" && 
+              <p className="usertag" >Hello <span id = "user">{props.username}</span>!</p>
             }
             { 
-             props.username === "" && 
+             (props.username === null || props.username === "") && 
               <Link to = '/signin'>
                 <button className = "sgnbtn" id = "signin">Signin</button>
               </Link>
             }
-            {props.username !== ""  && <button onClick={checkLogout} className = "signout" id = "signout">Logout</button>}
+            {
+             props.username && props.username !== ""  && 
+             <button onClick={checkLogout} className = "signout" id = "signout">Logout</button>}
             
           </div>
         </div>
