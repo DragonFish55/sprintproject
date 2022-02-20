@@ -1,3 +1,5 @@
+
+
 .header{
     width: 100%;
     height: 100%;
@@ -19,19 +21,20 @@
     font-size: 1.5rem;
 }
 
-.signin{
+.sign_main{
     display: flex;
     justify-content: flex-end;
     width: 100%;
+    height: 100%;
 }
 
-.signin button{
+.sign_main .sgnbtn{
     border-radius: 5px;
     border: none;
     min-width: 3rem;
 }
 
-.signin button:hover{
+.sign_main .sgnbtn:hover{
     background-color: black;
     color:white;
 }
@@ -41,9 +44,17 @@
 }
 
 .usertag{
-    display: none;
+    margin-right: 1rem;
 }
 
 .signout{
-    display: none;
+    border-radius: 5px;
+    outline: none;
+    border:none;
+    padding: 0 5px;
+}
+
+.signout:hover{
+    color:white;
+    background-color: black;
 }

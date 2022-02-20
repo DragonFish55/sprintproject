@@ -1,53 +1,140 @@
 import './SigninPage.css';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import $ from 'jquery';
+import React, {useState} from 'react';
 
 function SigninPage() {
 
-  user_error = ""
-  pass_error = ""
+  const [passerror,setPassError] = useState("")
+  const [usererror,setUserError] = useState("")
+  const navigate = useNavigate();
 
   return (
     <div className="signin">
-        <div className = "signinheader">
-          Signin
+      <section className="left-section">
+        <div id="left-form" className="form">
+          <h1>Login</h1>
+          <div className = "innerform">
+            <div className='userin_div'>
+              <input
+                id="userinput"
+                type="text"
+                name="user-name"
+                className="input-box"
+                placeholder="User Name"
+                onClick={resetErr}
+              />
+              {
+                usererror != "" &&
+                <label htmlFor="user-name">{usererror}</label>
+              }
+             
+
+            </div>
+            <div className='passin_div'>
+              <input
+                id="passinput"
+                type="password"
+                name="user-pass"
+                className="input-box"
+                placeholder="Password"
+                onClick={resetErr}
+              />
+              {
+                passerror != "" &&
+                <label id = "passerr_lbl" htmlFor="user-pass">{passerror}</label>
+              }
+              
+              
+            </div>
+            
+            <button
+                name="login-btn"
+                onClick={checkSignin}
+                className="btn"
+              >Login</button>
+            <div className = "navbtns">
+              
+              <button
+                      id = "submitbtn"
+                      name="signup-btn"
+                      onClick={goSignup}
+                      className="btn"
+                      
+              >Signup?</button>
+              <button
+                      id = "submitbtn"
+                      name="signup-btn"
+                      onClick={goMainPage}
+                      className="btn"
+                      
+              >Main Page</button>
+
+            </div>
+            
+          </div>
         </div>
-        <div className = "inputarea">
-          <label htmlFor = "userinput">Username *</label>
-          <input type = "text" name = "userinput" id = "userinput"  required />
-          <label htmlFor = "passinput">Password *</label>
-          <input type = "password" name = "passinput" id = "passinput" required />
-        </div>
-        <div className = "submitbtn">
-          <button onClick = {checkSignin} id = "submitbtn">Submit</button>
-        </div>
-        <div className = "signuplink">
-          <Link to ='/signup'> Signup?</Link>
-        </div>
+      </section>
     </div>
   );
 
+  function resetErr(){
+    setPassError("")
+    setUserError("")
+  }
+
+  function goSignup(){
+    navigate('/signup', {state:{name:""}});
+  }
+
+  function goMainPage(){
+    navigate('/', {state:{name:""}});
+  }
+
+
   function checkSignin(){
-    const user = document.getElementById('userinput').value;
-    const password = document.getElementById('passinput').value;
-    const data = {username:user, password:password};
+    const userinput = document.getElementById("userinput").value;
+    const passinput = document.getElementById("passinput").value;
+    //const passerr_lbl = document.getElementById("passerr_lbl").value;
+    
+    const data = {username:userinput, password:passinput};
+    console.log(data)
+    let error = false
     $.ajax({
-      //url: 'https://lit-dawn-76000.herokuapp.com/api/signin',
-      url: 'http://127.0.0.1:5000/api/signin',
+      url: 'https://lit-dawn-76000.herokuapp.com/api/signin',
+      //url: 'http://127.0.0.1:5000/api/signin',
       type: 'POST',
       crossorigin: true,
       cache:false,
       dataType: "json",
       contentType: "application/json",
       data:JSON.stringify(data),
-      success: function(data){
-        console.log(data);
-        if(data.user_error != ""){
-          user_error = data.user_error
+      success: function(data,xhr){
+        
+        
+        if(data.user_error === "true"){
+          setUserError("Incorrect Username");
+          error = true
+          
         }
-        if(data.pass_error != ""){
-          pass_error = data.pass_error
+        else{
+          setPassError("");
         }
+        
+        if(data.pass_error === "true"){
+          setPassError("Incorrect Password");
+          error = true
+         // passerr_lbl.style.display = "block"; 
+        }
+        else{
+          setPassError("");
+        }
+        
+        if(error !== true){
+          navigate('/', {state:{name:userinput}});
+        }
+        
+          
       },
       error: function(request,error){
         console.log(error);

@@ -1,24 +1,42 @@
 import './HeaderComp.css';
-import {Link} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
+import { useState, React} from 'react';
+import $ from 'jquery';
 
-function HeaderComp() {
+function HeaderComp(props) {
+
+
+  const [logout, setLogout] = useState("")
+  const navigate = useNavigate();
+
   return (
     <div className="header">
         <div className = "innerheader">
           <div className = "title">
             <p>Main App</p>
           </div>
-          <div className = "signin">
-            <p className="usertag" >Welcome <span id = "user"></span></p>
-            <Link to = '/signin'>
-              <button id = "signin">Signin</button>
-            </Link>
-            <button onClick={checkLogout} className = "signout" id = "signout">Logout</button>
+          <div className = "sign_main">
+            {
+              props.username !== "" && <p className="usertag" >Hello <span id = "user">{props.username}</span>!</p>
+            }
+            { 
+             props.username === "" && 
+              <Link to = '/signin'>
+                <button className = "sgnbtn" id = "signin">Signin</button>
+              </Link>
+            }
+            {props.username !== ""  && <button onClick={checkLogout} className = "signout" id = "signout">Logout</button>}
+            
           </div>
         </div>
     </div>
   );
 
+  function checkLogout(){
+    navigate('/', {state:{name:""}});
+  }
+
+  /*
   function checkLogout(){
     const user = document.getElementById('userinput').value;
     const password = document.getElementById('passinput').value;
@@ -40,6 +58,7 @@ function HeaderComp() {
       }
     })
   };
+  */
 }
 
 export default HeaderComp;

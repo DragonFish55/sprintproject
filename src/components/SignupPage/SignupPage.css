@@ -1,0 +1,101 @@
+.signup{
+    font-family: 'Segoe UI';
+    font-size: 1.5rem;
+    width: 100%;
+    height: 100%;  
+    box-sizing: border-box;
+}
+
+.innerform{
+    width: 100%;
+    height: 100%;
+}
+
+.right-section{
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    
+    margin-top: 10rem;
+}
+
+.pass_err_div{
+    display: flex;
+    flex-direction: column;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    width: 10%;
+    width: fit-content;
+    font-size: 2rem;
+}
+
+.form label{
+    font-size: 1.5rem;
+}
+
+.form h1{
+    margin-left: 20px;
+}
+
+.form input {
+    min-width: 400px;
+    display: block;
+    margin: 20px;
+    padding: 15px 20px;
+    background-color: #ece7e7;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    box-shadow: 15px 15px 25px #a8a8a8;
+    transition: box-shadow 0s;
+}
+
+.form input:focus {
+    box-shadow: 5px 5px 15px #a8a8a8;
+}
+
+.form .btn {
+    margin: 20px;
+    background-color: #f1a566;
+    height: 3rem;
+    color: #fff;
+    border: none;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 15px 15px 20px #a8a8a8;
+    transition: box-shadow 0.5s;
+    outline: none;
+    
+}
+
+.form .btn:hover {
+    box-shadow: 5px 5px 15px #aaa;
+}
+
+
+
+.navbtns{
+    display: flex;
+    flex-direction: row;
+}
+
+.navbtns :not(:first-child){
+    margin-left:1rem;
+}
+
+.btn{
+    width: 100%;
+    height: 100%;
+}
+
+.confirm_div{
+    display: flex;
+    flex-direction: column;
+
+}
