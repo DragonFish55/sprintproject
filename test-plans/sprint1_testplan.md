@@ -206,4 +206,3 @@ Megan: Test Planning/Test Case Management
 - 2/18/2022 => Finished Frontend design
 - 2/19/2022 => Began planning testing
 - 2/21/2022 => Finished testing
-- 
