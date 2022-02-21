@@ -14,8 +14,8 @@ function LandingPage(props) {
           <HeaderComp username = {state && state.name}></HeaderComp>
         </div>
         <div className='mainpage'>
-          <div class = "title"><p></p></div>
-          <div class = "title"><p></p></div>
+          <div className = "title"><p></p></div>
+          <div className = "title"><p></p></div>
         </div>
       
     </div>

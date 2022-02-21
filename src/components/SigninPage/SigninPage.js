@@ -98,7 +98,6 @@ function SigninPage() {
     //const passerr_lbl = document.getElementById("passerr_lbl").value;
     
     const data = {username:userinput, password:passinput};
-    console.log(data)
     let error = false
     $.ajax({
       url: 'https://lit-dawn-76000.herokuapp.com/api/signin',

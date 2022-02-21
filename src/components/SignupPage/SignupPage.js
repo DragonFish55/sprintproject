@@ -11,7 +11,7 @@ function SignupPage() {
   const [pass3, setPass3] = useState("");
   const [pass4, setPass4] = useState("");
   const [pass5, setPass5] = useState("");
-  const [confirmcreate, setConfirm] = useState("");
+  const [confirm, setConfirm] = useState("");
   const navigate = useNavigate();
 
   return (
@@ -94,6 +94,10 @@ function SignupPage() {
               
             </div>
           </div>
+          {
+            confirm && confirm != "" && 
+            <div className = "usercreate">{confirm}</div>
+          }
         </section>
         
     </div>
@@ -108,6 +112,7 @@ function SignupPage() {
     setPass3("");
     setPass4("");
     setPass5("");
+    setConfirm("");
   }
 
   function goSignin(){
@@ -127,7 +132,6 @@ function SignupPage() {
       contentType: "application/json",
       data:JSON.stringify(datain),
       success: function(data){
-        console.log(data);
         if(data.data_out === "true"){
           setConfirm("User successfully created");
         }
