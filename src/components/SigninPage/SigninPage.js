@@ -1,8 +1,16 @@
 import './SigninPage.css';
-import {Link, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import $ from 'jquery';
 import React, {useState} from 'react';
 
+/**
+ * 
+ * @returns Signin form component 
+ * Details: Component that allows the user to enter
+ *          details for a user that is already in the database
+ *          and validate whether they can login
+ * 
+ */
 function SigninPage() {
 
   const [passerror,setPassError] = useState("")
@@ -25,7 +33,7 @@ function SigninPage() {
                 onClick={resetErr}
               />
               {
-                usererror != "" &&
+                usererror !== "" &&
                 <label htmlFor="user-name">{usererror}</label>
               }
              
@@ -41,7 +49,7 @@ function SigninPage() {
                 onClick={resetErr}
               />
               {
-                passerror != "" &&
+                passerror !== "" &&
                 <label id = "passerr_lbl" htmlFor="user-pass">{passerror}</label>
               }
               
@@ -78,27 +86,31 @@ function SigninPage() {
     </div>
   );
 
+  //resets the error message state variables
   function resetErr(){
     setPassError("")
     setUserError("")
   }
 
+  //on clicking the signup button redirect to signup page
   function goSignup(){
     navigate('/signup', {state:{name:""}});
   }
 
+  //on clicking the main page button redirect to main page
   function goMainPage(){
     navigate('/', {state:{name:""}});
   }
 
-
+  //function that calls the signin api and checks whether user is valid
+  //if not sets appropriate error message
   function checkSignin(){
     const userinput = document.getElementById("userinput").value;
     const passinput = document.getElementById("passinput").value;
-    //const passerr_lbl = document.getElementById("passerr_lbl").value;
     
     const data = {username:userinput, password:passinput};
-    let error = false
+    console.log(data)
+    
     $.ajax({
       url: 'https://lit-dawn-76000.herokuapp.com/api/signin',
       //url: 'http://127.0.0.1:5000/api/signin',
@@ -109,34 +121,18 @@ function SigninPage() {
       contentType: "application/json",
       data:JSON.stringify(data),
       success: function(data,xhr){
-        
-        
-        if(data.user_error === "true"){
-          setUserError("Incorrect Username");
-          error = true
-          
-        }
-        else{
-          setPassError("");
-        }
-        
-        if(data.pass_error === "true"){
-          setPassError("Incorrect Password");
-          error = true
-         // passerr_lbl.style.display = "block"; 
-        }
-        else{
-          setPassError("");
-        }
-        
-        if(error !== true){
-          navigate('/', {state:{name:userinput}});
-        }
-        
-          
+        setPassError("");
+        setUserError("");
+        navigate('/', {state:{name:userinput}});
       },
-      error: function(request,error){
-        console.log(error);
+      error: function(data,request,error){
+        if(data.responseJSON.user_error === "true"){
+          setUserError("Incorrect Username");
+        }
+        
+        if(data.responseJSON.pass_error === "true"){
+          setPassError("Incorrect Password");
+        }
       }
     })
   };

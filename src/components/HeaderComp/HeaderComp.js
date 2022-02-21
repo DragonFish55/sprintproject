@@ -1,14 +1,14 @@
 import './HeaderComp.css';
 import {Link,useNavigate} from 'react-router-dom'
-import { useState, React} from 'react';
+import { React} from 'react';
 import $ from 'jquery';
 
+//returns the header component to be put in main page
 function HeaderComp(props) {
 
 
-  const [logout, setLogout] = useState("")
   const navigate = useNavigate();
-    console.log(props.username)
+    
   return (
     <div className="header">
         <div className = "innerheader">
@@ -34,34 +34,31 @@ function HeaderComp(props) {
         </div>
     </div>
   );
-
+  
   function checkLogout(){
-    navigate('/', {state:{name:""}});
-  }
-
-  /*
-  function checkLogout(){
-    const user = document.getElementById('userinput').value;
-    const password = document.getElementById('passinput').value;
-    const data = {username:user, password:password};
+    const user = props.username
+    const data = {username:user}
     $.ajax({
       //url: 'https://lit-dawn-76000.herokuapp.com/api/logout',
-      url: 'http://127.0.0.1:5000/api/logout',
+      url: 'https://lit-dawn-76000.herokuapp.com/api/signout',
       type: 'POST',
       crossorigin: true,
       cache:false,
       dataType: "json",
       contentType: "application/json",
       data:JSON.stringify(data),
-      success: function(data){
-        console.log(data);
+      success: function(data,xhr){
+        if(data.user_error === "true"){
+          navigate('/', {state:{name:""}});
+        }
+        
       },
       error: function(request,error){
         console.log(error);
       }
     })
   };
-  */
+  
 }
 
 export default HeaderComp;

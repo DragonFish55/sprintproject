@@ -1,8 +1,15 @@
 import './SignupPage.css';
-import {Link, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import $ from 'jquery';
 import React,{useState} from 'react';
 
+/**
+ * 
+ * @returns signup form component 
+ * Details: Component that allows the user to enter
+ *          details for a new user and save them in a database
+ * 
+ */
 function SignupPage() {
   
   const [user_error, setUser] = useState("");
@@ -73,8 +80,6 @@ function SignupPage() {
                 {pass5 !== "" && <label htmlFor="user-pass">{pass5}</label>}
               </div>
 
-              
-              
               <div className = "navbtns">
                 <button
                     id =  "homebtn"
@@ -95,7 +100,7 @@ function SignupPage() {
             </div>
           </div>
           {
-            confirm && confirm != "" && 
+            confirm && confirm !== "" && 
             <div className = "usercreate">{confirm}</div>
           }
         </section>
@@ -104,7 +109,7 @@ function SignupPage() {
     
   );
 
-
+  //resets all error message to default values
   function resetErrors(){
     setUser("");
     setPass1("");
@@ -115,11 +120,12 @@ function SignupPage() {
     setConfirm("");
   }
 
+  //on clicking signin button go to signin page
   function goSignin(){
     navigate('/signin', {state:{name:""}});
   }
 
-
+  //function that calls the signup api 
   function callApi(url,datain){
     $.ajax({
       //url: 'https://lit-dawn-76000.herokuapp.com/api/signup',
@@ -135,17 +141,15 @@ function SignupPage() {
         if(data.data_out === "true"){
           setConfirm("User successfully created");
         }
-        else{
-          setConfirm("");
-        }
       },
       error: function(request,error){
+        setConfirm("");
         console.log(error)
       }
     });
   };
 
-
+  //check if password contains a lowercase character
   function checkLowerChar(password){
     let k = 0;
 
@@ -160,6 +164,7 @@ function SignupPage() {
     else{return false}
   }
 
+  //check if password contains an uppercase character
   function checkUpperChar(password){
     let k = 0;
     for(let i = 0; i < password.length ;i++){
@@ -175,6 +180,7 @@ function SignupPage() {
     }
   }
 
+  //check if password contains a non letter
   function checkNotLetter(password){
     let k = 0;
     let reg = /[a-zA-Z]/;
@@ -191,6 +197,7 @@ function SignupPage() {
     }
   }
 
+  //check if the given string is greater than or equal to a given length
   function checkLength(stringIn, length){
     if(stringIn.length >= length){
       return true;
@@ -200,7 +207,8 @@ function SignupPage() {
     }
   }
 
-
+  //main function that tests userinput and passwords against 
+  //input contstraints and only allows valid username and password format
   function checkSignup(){
 
       let url = 'https://lit-dawn-76000.herokuapp.com/api/signup'
@@ -217,12 +225,12 @@ function SignupPage() {
       resetErrors();
       
       if(checkLength(userinput,8) === false){
-        setUser("400 - Username does not contain at least 8 characters")
+        setUser("Error - Username does not contain at least 8 characters")
         error = true
       }
 
       if(checkLength(passinput,8) === false){
-        setPass1("400 - Password does not contain at least 8 characters");
+        setPass1("Error - Password does not contain at least 8 characters");
         
         error = true
       }
@@ -230,28 +238,28 @@ function SignupPage() {
       
       
       if(checkNotLetter(passinput) === false){
-        setPass2("400 - Password does not contain at least one non letter")
+        setPass2("Error - Password does not contain at least one non letter")
         error = true
       }
             
       if(checkUpperChar(passinput) === false){
-        setPass3("400 - Password does not contain an uppercase character")
+        setPass3("Error - Password does not contain an uppercase character")
         error = true
       }
       
       if(checkLowerChar(passinput) === false){
-        setPass4("400 - Password does not contain a lowercase character")
+        setPass4("Error - Password does not contain a lowercase character")
         error = true
       }
       
       
       if(!(passinput === confirmpass)){
-        setPass5("400 - Passwords do not match or are blank")
+        setPass5("Error - Passwords do not match or are blank")
         error = true
       }
       else{
         if((passinput === confirmpass) && passinput===""){
-          setPass5("400 - Passwords do not match or are blank")
+          setPass5("Error - Passwords do not match or are blank")
         }
       }
      

@@ -2,7 +2,7 @@ import HeaderComp from '../HeaderComp/HeaderComp';
 import './LandingPage.css';
 import { useLocation} from 'react-router-dom';
 
-
+//returns main page component of the frontend app
 function LandingPage(props) {
   
   const {state} = useLocation();

@@ -5,6 +5,7 @@ import ErrorPage from './components/ErrorPage/ErrorPage';
 import SigninPage from './components/SigninPage/SigninPage';
 import SignupPage from './components/SignupPage/SignupPage';
 
+//Defines the main component that controls which page component gets rendered
 function App() {
   return (
     <div className="App">

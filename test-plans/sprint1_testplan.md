@@ -32,44 +32,115 @@ This is Team Z's Sprint 1 test plan and test cases document. Below is informatio
 Testing features will start with the front end of the software and end with testing the backend of the software. Ensuring the front end functions is critical prior to ensuring the username and password credentials are sent to the database. Once the code has constructed the appropriate pages and are linked to each other, testing can begin with ensuring that the user is able to navigate from one page to another. This will be done by testing the API endpoints. Entering and creating username and password credentials will be the next essential step. Then, seeing if those credentials are properly stored in the database will be the final step.
 
 # Pass/Fail Criteria
-The software application should function as intended with a user having the ability to sign up, sign in, navigate to the landing page, log out, and then log in to the application. There should not be any critical bugs affecting these functions.
+The software application should function as intended with a user having the ability to sign up, sign in, navigate to the landing page, log out, and then log in to the application. There should not be any critical bugs affecting these functions. In addition the server should be able to respond to various types of status code errors.
 
 # Testing Tasks
 
 ## API Testing
-**API endpoint of 200, Landing Page, Page Loads**
-- Objective: Landing Page has an API endpoint of 200.
-- Technique: Use Postman or other similar testing software to make a GET request for the Landing Page.
-- Completion Criteria: Endpoint of 200 is received from the GET request.
+**Status Code Ok for 200, Signin User**
+- Objective: Test that given correct json data format and a post method type when you send a request to the signin api that the api responds with a 200 ok response
+- Technique: Use Postman or other similar testing software to make a POST request for the Signin API.
+- Completion Criteria: Status Code 200 response received
 
-**API Endpoint of 200, Landing Page, Sign Out Button Functions**
-- Objective:
-- Technique:
-- Completion Criteria:
+**Status Code Error for 400**
+- Objective: Test that given incorrect json data format the server responds with a status code of 400
+- Technique: Use Postman or other similar testing software to make a POST request for the Signin API.
+- Completion Criteria: Status Code 400 response received
 
-**API Endpoint of 200, Sign In Page, User is Authorized to Sign In**
-- Objective:
-- Technique:
-- Completion Criteria:
+**Status Code Error for 401**
+- Objective: Test that given incorrect credentials the API responds with a status code of 401
+- Technique: Use Postman or other similar testing software to make a POST request for the Signin API.
+- Completion Criteria: Status Code 401 response received
 
-**API Endpoint of 401, Sign In Page, User is Unauthorized to Sign In due to Invalid Credentials**
-- Objective:
-- Technique:
-- Completion Criteria:
+**Status Code Error for 404**
+- Objective: Determine whether the server can respond with a 404 not found
+             response indicating that the server could not find the API endpoint
+- Technique: Use Postman to call an endpoint on the server
+             that is not valid (created).
+- Completion Criteria: Status Code 404 response received
 
-**API Endpoint of 401, Sign Up Page, User is Unauthorized to Sign Up due to Duplicate Username**
-- Objective:
-- Technique:
-- Completion Criteria:
+**Status Code Error for 500**
+- Objective: Test that without the appropriate content-type application/json header the server responds with 
+             a 500 status code error message
+- Technique: Use Postman or other similar testing software to make a POST request for the Signin API.
+- Completion Criteria: Status Code 500 response received
 
 ## User Acceptance Testing
 
+**Creation of Username and Password Credentials per User Appears in Database**
+- Objective: Enter a valid username and password into the signup form and 
+             the user is added to the database as a new user 
+- Technique: The user enters a username and password and confirmation password.
+             If the requirements are met then the password is encrypted into a 
+             string and the encryption key and password are both saved into the db
+             along with the username  
+- Completion Criteria: New user record is created in the database's User table
+
 
 ## Integration Testing
-**Creation of Username and Password Credentials per User Appears in Database**
+
+**Frontend Signup API test, Username Less Than 8 Characters**
 - Objective:
 - Technique:
-- Completion Criteria:
+- Completion Criteria: The user receives an error message regarding the length of
+                       the username needing to be at least 8 characters
+
+**Frontend Signup API test, Username Greater Than or Equal to 8 Characters**
+- Objective:
+- Technique:
+- Completion Criteria: The user does not receive an error message regarding the length
+                       of the username
+
+**Frontend Signup API test, Password Less Than 8 Characters**
+- Objective: Test that the frontend react signup form will restrict users
+             from being submitted to the signin api if they submit a password
+             less than 8 characters in length
+- Technique: Used an if statement to signal an error and displays an error message
+             that the password is not long enough
+- Completion Criteria: The user receives an error message regarding the length of
+                       the password
+
+**Frontend Signup API test, Password Greater Than or Equal to 8 Characters**
+- Objective:
+- Technique:
+- Completion Criteria: The user does not receive an error message regarding the length
+                       of the password
+
+**Frontend Signup API test, Password Contains at least 1 Lowercase Character**
+- Objective:
+- Technique:
+- Completion Criteria: The user does not receive an error message regarding the password
+                       needing at least 1 lowercase character
+
+**Frontend Signup API test, Password Does Not Contain at least 1 Lowercase Character**
+- Objective:
+- Technique:
+- Completion Criteria: The user does receive an error message regarding the password
+                       needing at least 1 lowercase character
+
+**Frontend Signup API test, Password Contains at least 1 Uppercase Character**
+- Objective:
+- Technique:
+- Completion Criteria: The user does not receive an error message regarding the password
+                       needing at least 1 uppercase character
+
+**Frontend Signup API test, Password Does Not Contain at least 1 Uppercase Character**
+- Objective:
+- Technique:
+- Completion Criteria: The user does receive an error message regarding the password
+                       needing at least 1 uppercase character
+
+**Frontend Signup API test, Password Does Contain at Least 1 Non Letter Character**
+- Objective:
+- Technique:
+- Completion Criteria: The user does not receive an error message regarding the password
+                       needing at least 1 character that is not a letter
+
+**Frontend Signup API test, Password Does Not Contain at Least 1 Non Letter Character**
+- Objective:
+- Technique:
+- Completion Criteria: The user does receive an error message regarding the password
+                       needing at least 1 character that is not a letter
 
 # Responsibilities
 John: Backend Development
@@ -77,3 +148,10 @@ Harshal: Frontend Development
 Megan: Test Planning/Test Case Management
 
 # Schedule
+2/8/2022 => Started working on backend development
+2/10/2022 => Started Working on Heroku backend Implementation
+2/12/2022 => Created initial React app design
+2/15/2022 => Finished Heroku backend Implmentation
+2/18/2022 => Finished Frontend design
+2/19/2022 => Began planning testing
+2/21/2022 => Finished testing
