@@ -43,37 +43,61 @@ The software application should function as intended with a user having the abil
 - Completion Criteria: Endpoint of 200 is received from the GET request.
 
 **API Endpoint of 200, Landing Page, Sign Out Button Functions**
-- Objective:
-- Technique:
+- Objective: Landing Page has an API endpoint of 200.
+- Technique: Use Postman or other similar testing software to make a GET request for the Landing Page.
 - Completion Criteria:
 
 **API Endpoint of 200, Sign In Page, User is Authorized to Sign In**
-- Objective:
-- Technique:
+- Objective: Landing Page has an API endpoint of 200.
+- Technique: Use Postman or other similar testing software to make a GET request for the Sign In Page.
 - Completion Criteria:
 
 **API Endpoint of 401, Sign In Page, User is Unauthorized to Sign In due to Invalid Credentials**
-- Objective:
-- Technique:
+- Objective: Sign In Page has an API endpoint of 401.
+- Technique: Use Postman or other similar testing software to make a GET request for the Sign In Page.
 - Completion Criteria:
 
 **API Endpoint of 401, Sign Up Page, User is Unauthorized to Sign Up due to Duplicate Username**
-- Objective:
-- Technique:
+- Objective: Sign Up Page has an API endpoint of 401.
+- Technique: Use Postman or other similar testing software to make a GET request for the Sign Up Page.
 - Completion Criteria:
 
-## User Acceptance Testing
+**API Endpoint of 404, Landing Page, Page Not Found**
+- Objective: Erroneous GET request is submitted.
+- Technique: Use Postman or other similar testing software to make a GET request for the Landing Page.
+- Criteria: 404 Error message is displayed.
 
+## User Acceptance Testing
+**Text Can Be Typed Into Text Boxes**
+- Objective: Test to see if username and password text boxes function as necessary.
+- Technique: Type into the text boxes to see if the username text appears as typed but  the password text box hides the text.
+- Completion Criteria: Text appears correctly as it is typed.
+
+**Content Appears on Each Page**
+- Objective: Test to see if all content that's meant to appear to the user does appear on the front end. This includes the username of the user when they are signed into the Landing Page.
+- Technique: Ensure after getting an API endpoint of 200 that all content appears on the front end.
+- Completion Criteria: All content appears on the page as designated.
+
+**All Buttons Function**
+- Objective: Test to see if buttons (sign up, sign in, log out) function as designated.
+- Technique: Click on the buttons (and after filling out the text boxes if necessary) to see if they take the user to the appropriate page.
+- Completion Criteria: Buttons navigate user to the appropriate page.
+
+**Invalid Credentials Message**
+- Objective: When incorrect credentials are entered, an error message will appear.
+- Technique: Enter in either a duplicate username, do not fulfill the username or password sign up requirements, or enter invalid credentials to see if the error message appears.
+- Completion Criteria: Error message for invalid credentials appears for the user.
 
 ## Integration Testing
 **Creation of Username and Password Credentials per User Appears in Database**
-- Objective:
-- Technique:
-- Completion Criteria:
+- Objective: Ensure creation of new username and password for a user appear in a database.
+- Technique: Enter a generic username and password that fulfill the username and password requirements and see if that information is stored on the backend.
+- Completion Criteria: Username and password information appear and are stored in the database.
 
 # Responsibilities
-John: Backend Development
+John: Backend Development, Test Cases
 Harshal: Frontend Development
 Megan: Test Planning/Test Case Management
 
 # Schedule
+Monday, February 21, 2022 - All items were tested throughout the day.
