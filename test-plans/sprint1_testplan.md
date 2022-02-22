@@ -193,11 +193,10 @@ Harshal: Frontend Development
 Megan: Test Planning/Test Case Management
 
 # Schedule
-2/8/2022 => Started working on backend development
-2/10/2022 => Started Working on Heroku backend Implementation
-2/12/2022 => Created initial React app design
-2/15/2022 => Finished Heroku backend Implmentation
-2/18/2022 => Finished Frontend design
-2/19/2022 => Began planning testing
-2/21/2022 => Finished testing
-Monday, February 21, 2022 - All items were tested throughout the day.
+- 2/8/2022 => Started working on backend development
+- 2/10/2022 => Started Working on Heroku backend Implementation
+- 2/12/2022 => Created initial React app design
+- 2/15/2022 => Finished Heroku backend Implmentation
+- 2/18/2022 => Finished Frontend design
+- 2/19/2022 => Began planning testing
+- 2/21/2022 => Finished testing
