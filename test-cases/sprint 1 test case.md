@@ -1,7 +1,7 @@
 # Test Cases
 
-## Status Code 200 test
-### Test Case Id: 1
+## Test Case 1: Status Code 200 test
+### Case Id: status_200
 ### Description
 Test that utilizies Postman to send an http(s) request to our signin API in order to test that the API is functioning properly given correct input data by checking that if, given the correct data, the API sends back a response with status code 200.
 ### Test Steps
@@ -16,8 +16,8 @@ Server that is running the signup API and a Postman account to send an http(s) r
 The test is a pass if the response from the server is status code 200 and a failure if the response is anything else
 
 
-## Status Code 400 test
-### Test Case Id: 2
+## Test Case 2: Status Code 400 test
+### Case Id: status_400
 ### Description
 Test that utilizies Postman to send an http(s) request to our signup API in order to test that the API, given incorrect data format, will not process the request and return a 400 error
 ### Test Steps 
@@ -31,8 +31,8 @@ Server that is running the signup API and a Postman account to send an http(s) r
 ### Pass/Fail Criteria
 The test is a pass if the response from the server is a status code 400 error message and fails if there is any other message or result
 
-## Status Code 401 test
-### Test Case Id: 3
+## Test Case 3: Status Code 401 test
+### Case Id: status_401
 ### Description
 Test that utilizies Postman to send an http(s) request to our signin API in order to test that the API, given incorrect user credentials, will return  a status code 401 error which indicates invalid login or invalid signup new user
 ### Test Steps
@@ -46,8 +46,8 @@ Server that is running the signin API and a Postman account to send an http(s) r
 ### Pass/Fail Criteria
 The test is a pass if the response from the server is a status code 401 error message and fails if there is any other message or result
 
-##  Status Code 404 test
-### Test Case Id: 4
+## Test Case 4: Status Code 404 test
+### Case Id: status_404
 ### Description 
 Test that utilizies Postman to send an http(s) request to our signup API in order to test that the API, given incorrect api endpoint, returns a 404 not found status code
 ### Test Steps
@@ -61,8 +61,8 @@ Server that is running the signup API and a Postman account to send an http(s) r
 ### Pass/Fail Criteria 
 The test is a pass if the response from the server is a status code 404 error message and fails if there is any other message or result
 
-## Status Code 500 test
-### Test Case Id: 5
+## Test Case 5: Status Code 500 test
+### Case Id: status_500
 ### Description  
 Test that utilizies Postman to send an http(s) request to our signin API in order to test that the API, given incorrect content type header with correct JSON data, format and api endpoint, will return an error 500 status code to the user
 ### Test Steps  
@@ -76,8 +76,8 @@ Server that is running the signup API and a Postman account to send an http(s) r
 ### Pass/Fail Criteria
 The test is a pass if the response from the server is a status code 500 error message and fails if there is any other message or result.
 
-## Signup User Creation Test
-### Test Case Id: 6
+## Test Case 6: Signup User Creation Test
+### Case Id: signup_create
 ### Description 
 User tests that upon entering a new user, which includes usernane and password, as long as the data input passes all validity checks a user will be added to the database
 ### Test Steps
@@ -91,8 +91,8 @@ Server that is running the signup API and a Postman
 ### Pass/Fail Criteria 
 If user is successfully added to the database with our User table then the test passes. Otherwise the test is a failure. 
 
-## Password Missing Lowercase Characters Test
-### Test Case Id: 7
+## Test Case 7: Password Missing Lowercase Characters Test
+### Case Id: password_nolowercase
 ### Description 
 Check to see if password input into signup form does not contain lowercase characters
 ### Test Steps 
@@ -106,8 +106,8 @@ Server that is running the signup API and our local react app
 ### Pass/Fail Criteria 
 If an error message is displayed on the signup page that says the password does not contain lowercase letters then the test passes. Otherwise the test fails.
 
-## Password Has Lowercase Characters Test
-### Test Case Id: 8
+## Test Case8: Password Has Lowercase Characters Test
+### Case Id: password_yeslowercase
 ### Description 
 Check to see if password input into signup form does contain lowercase characters
 ### Test Steps 
@@ -121,8 +121,8 @@ Server that is running the signup API and our local react app
 ### Pass/Fail Criteria
 If no error message is displayed on the signup page that says the password does not contain lowercase letters then the test passes. Otherwise the test fails.
 
-## Password Missing Uppercase Characters Test
-### Test Case Id: 9
+## Test Case 9: Password Missing Uppercase Characters Test
+### Case Id: password_nouppercase
 ### Description
 Test checks if uppercase characters are missing from the password entered into the signup form
 ### Test Steps 
@@ -136,8 +136,8 @@ Server that is running the signup API and our local react app
 ### Pass/Fail Criteria 
 If an error message is displayed on the signup page that says the password does not contain uppercase letters then the test passes. Otherwise the test fails.
 
-## Password Has Uppercase Characters Test
-### Test Case Id: 10
+## Test Case 10: Password Has Uppercase Characters Test
+### Case Id: password_yesuppercase
 ### Description 
 Test checks if a submitted signup form has a password that contains at least 1 uppercase character
 ### Test Steps
@@ -150,8 +150,8 @@ Server that is running the signup API and our local react app
 ### Pass/Fail Criteria 
 If no error message is displayed on the signup page that says the password does not contain uppercase letters then the test passes. Otherwise the test fails.
 
-## Password Missing Non Letters Test
-### Test Case Id: 11
+## Test Case 11: Password Missing Non Letters Test
+### Case Id: password_nonletters_missing
 ### Description
 Tests whether the password input on the signup form page is missing characters that are not letters such as a number or a special character
 ### Test Steps 
@@ -164,8 +164,8 @@ Server that is running the signup API and our local react app
 ### Pass/Fail Criteria 
 The error message for not entering a letter into the signup form did appear in which case the test passed otherwise the test fails.
 
-## Password Has Non Letters Test
-### Test Case Id: 12
+## Test Case 12: Password Has Non Letters Test
+### Case Id: password_nonletters_contains
 ### Description 
 Tests that the password input into the signup form contains at least 1 non letter character
 ### Test Steps
@@ -179,8 +179,8 @@ Server that is running the signup API and our local react app
 ### Pass/Fail Criteria 
 The error message for not entering a non letter into the signup form did not appear in which case the test passed otherwise the test fails.
 
-## Password Less Than 8 Characters Test
-### Test Case Id: 13
+## Test Case 13: Password Less Than 8 Characters Test
+### Case Id: password_lessthan8
 ### Description
 Tests that the password input into the signup form does not contain at least 8 characters
 ### Test Steps 
@@ -194,8 +194,8 @@ Server that is running the signup API and our local react app
 ### Pass/Fail Criteria 
 If the signup page does display the appropriate error message for entering less than 8 characters then the test is a pass. Otherwise the test fails.
 
-## Password Greater Than 7 Characters Test
-### Test Case Id: 14
+## Test Case 14: Password Greater Than 7 Characters Test
+### Case Id: password_morethan7
 ### Description
 Tests that the password input into the signup form contains at least 8 characters
 ### Test Steps 
@@ -209,8 +209,8 @@ Server that is running the signup API and our local react app
 ### Pass/Fail Criteria 
 If the signup page does not display the appropriate error message for entering less than 8 characters then the test is a pass. Otherwise the test fails.
 
-## Username Less Than 8 Characters Test
-### Test Case Id: 15
+## Test Case 15: Username Less Than 8 Characters Test
+### Case Id: username_lessthan8
 ### Description 
 Test whether username submitted into signup form contains less than 8 characters
 ### Test Steps 
@@ -224,8 +224,8 @@ Server that is running the signup API and our local react app
 ### Pass/Fail Criteria
 If the signup page does display the appropriate error message for entering less than 8 characters then the test is a pass. Otherwise the test fails.
 
-## Username Greater Than 7 Characters Test
-### Test Case Id: 16
+## Test Case 16: Username Greater Than 7 Characters Test
+### Case Id: username_morethan7
 ### Description 
 Tests whether the username submitted into the signup form page has at least 8 characters
 ### Test Steps 
