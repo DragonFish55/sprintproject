@@ -21,5 +21,5 @@
 | password_lessthan8           | Harshal Bhole          | Pass      | None                                              |
 | password_morethan7           | Harshal Bhole          | Pass      | None                                              |
 | username_lessthan8           | Harshal Bhole          | Pass      | None                                              |
-| username_morethan7           | Harshal Bhole          | Fail      | None                                              |
-| username_morethan7           | Harshal Bhole          | Pass      | None                                              |
+| username_morethan7           | Harshal Bhole          | Fail      | Username error message not appearing              |
+| username_morethan7           | Harshal Bhole          | Pass      | Message not appearing due to having null state var|
