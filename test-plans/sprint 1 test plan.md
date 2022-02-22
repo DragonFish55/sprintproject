@@ -6,6 +6,9 @@ This is Team Z's Sprint 1 test plan and test cases document. Below is informatio
 1. Landing Page
 2. Sign In Page
 3. Sign Up Page
+4. Signup API
+5. Signout API
+6. Signin API
 
 # Features to be Tested
 1. Landing Page Features
