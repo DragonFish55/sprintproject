@@ -2,19 +2,19 @@
 
 | Test Case ID | Group Member           | Pass/Fail | Comments|
 |--------------|------------------------|-----------|---------|
-| 1            | John Paglia            | Pass      | None    |
-| 2            | John Paglia            | Pass      | None    |
-| 3            | John Paglia            | Pass      | None    |
-| 4            | John Paglia            | Pass      | None    |
-| 5            | John Paglia            | Pass      | None    |
-| 6            | John Paglia            | Pass      | None    |
-| 7            | Megan Resurreccion     | Pass      | None    |
-| 8            | Megan Resurreccion     | Pass      | None    |
-| 9            | Megan Resurreccion     | Pass      | None    |
-| 10           | Megan Resurreccion     | Pass      | None    |
-| 11           | Megan Resurreccion     | Pass      | None    |
-| 12           | Harshal Bhole          | Pass      | None    |
-| 13           | Harshal Bhole          | Pass      | None    |
-| 14           | Harshal Bhole          | Pass      | None    |
-| 15           | Harshal Bhole          | Pass      | None    |
-| 16           | Harshal Bhole          | Pass      | None    |
+| status_200   | John Paglia            | Pass      | None    |
+| status_400   | John Paglia            | Pass      | None    |
+| status_401   | John Paglia            | Pass      | None    |
+| status_404   | John Paglia            | Pass      | None    |
+| status_500   | John Paglia            | Pass      | None    |
+| signup_create| John Paglia            | Pass      | None    |
+| password_nolowercase | Megan Resurreccion     | Pass      | None    |
+| password_yeslowercase| Megan Resurreccion     | Pass      | None    |
+| password_nouppercase | Megan Resurreccion     | Pass      | None    |
+| password_yesuppercase| Megan Resurreccion     | Pass      | None    |
+| password_nonletters_missing  | Megan Resurreccion     | Pass      | None    |
+| password_nonletters_contains | Harshal Bhole          | Pass      | None    |
+| password_lessthan8  | Harshal Bhole          | Pass      | None    |
+| password_morethan7  | Harshal Bhole          | Pass      | None    |
+| username_lessthan8  | Harshal Bhole          | Pass      | None    |
+| username_morethan7  | Harshal Bhole          | Pass      | None    |
