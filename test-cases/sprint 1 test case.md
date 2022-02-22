@@ -106,7 +106,7 @@ Server that is running the signup API and our local react app
 ### Pass/Fail Criteria 
 If an error message is displayed on the signup page that says the password does not contain lowercase letters then the test passes. Otherwise the test fails.
 
-## Test Case8: Password Has Lowercase Characters Test
+## Test Case 8: Password Has Lowercase Characters Test
 ### Test Case Id: password_yeslowercase
 ### Description 
 Check to see if password input into signup form does contain lowercase characters
