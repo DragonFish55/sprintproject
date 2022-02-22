@@ -202,7 +202,9 @@ The software application should function as intended with a user having the abil
 
 # Responsibilities
 John: Backend Development, Test Cases
+
 Harshal: Frontend Development
+
 Megan: Test Planning/Test Case Management
 
 # Schedule
