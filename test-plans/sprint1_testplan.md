@@ -80,14 +80,18 @@ The software application should function as intended with a user having the abil
 ## Integration Testing
 
 **Frontend Signup API test, Username Less Than 8 Characters**
-- Objective:
-- Technique:
+- Objective: Test whether frontend will restrict users from creating an account
+             if their username is less than 8 characters in length
+- Technique: Used an if statement to signal an error and display an error message
+             if the username is not long enough
 - Completion Criteria: The user receives an error message regarding the length of
                        the username needing to be at least 8 characters
 
 **Frontend Signup API test, Username Greater Than or Equal to 8 Characters**
-- Objective:
-- Technique:
+- Objective: Test whether frontend will restrict users from creating an account
+             if their username is greater than or equal to 8 characters in length
+- Technique: Used an if statement to signal an error and display an error message
+             if the username is not long enough
 - Completion Criteria: The user does not receive an error message regarding the length
                        of the username
 
@@ -95,46 +99,55 @@ The software application should function as intended with a user having the abil
 - Objective: Test that the frontend react signup form will restrict users
              from being submitted to the signin api if they submit a password
              less than 8 characters in length
-- Technique: Used an if statement to signal an error and displays an error message
+- Technique: Used an if statement to signal an error and display an error message
              that the password is not long enough
 - Completion Criteria: The user receives an error message regarding the length of
-                       the password
+                       the password needing to be 8 characters or more
 
 **Frontend Signup API test, Password Greater Than or Equal to 8 Characters**
-- Objective:
-- Technique:
+- Objective: Test whether frontend will restrict users from creating an account
+             if their password is greater than or equal to 8 characters in length
+- Technique: Used an if statement to signal an error and display an error message
+             if the password is not long enough
 - Completion Criteria: The user does not receive an error message regarding the length of the password
 
 **Frontend Signup API test, Password Contains at least 1 Lowercase Character**
-- Objective:
-- Technique:
+- Objective: Test whether submitted password in signup form contains 1 lowercase character at least
+- Technique: Used an if statement to signal an error and display an error message
+             if the password does not contain at least 1 lowercase character
 - Completion Criteria: The user does not receive an error message regarding the password needing at least 1 lowercase character
 
 **Frontend Signup API test, Password Does Not Contain at least 1 Lowercase Character**
-- Objective:
-- Technique:
+- Objective: Test whether submitted password in signup form contains no lowercase characters
+- Technique: Used an if statement to signal an error and display an error message
+             if the password does not contain at least 1 lowercase character
 - Completion Criteria: The user does receive an error message regarding the password needing at least 1 lowercase character
 
 **Frontend Signup API test, Password Contains at least 1 Uppercase Character**
-- Objective:
-- Technique:
+- Objective: Test whether submitted password in signup form contains 1 uppercase character at least
+- Technique: Used an if statement to signal an error and display an error message
+             if the password does not contain at least 1 uppercase character
 - Completion Criteria: The user does not receive an error message regarding the password needing at least 1 uppercase character
 
 **Frontend Signup API test, Password Does Not Contain at least 1 Uppercase Character**
-- Objective:
-- Technique:
+- Objective: Test whether submitted password in signup form contains no uppercase characters
+- Technique: Used an if statement to signal an error and display an error message
+             if the password does not contain at least 1 uppercase character
 - Completion Criteria: The user does receive an error message regarding the password needing at least 1 uppercase character
 
 **Frontend Signup API test, Password Does Contain at Least 1 Non Letter Character**
-- Objective:
-- Technique:
+- Objective: Test whether submitted password in signup form does contain at least 1 non letter character
+- Technique: Used an if statement to signal an error and display an error message
+             if the password does not contain at least 1 non letter character
 - Completion Criteria: The user does not receive an error message regarding the password needing at least 1 character that is not a letter
 
 **Frontend Signup API test, Password Does Not Contain at Least 1 Non Letter Character**
-- Objective:
-- Technique:
+- Objective: Test whether submitted password in signup form does not contain any non letter characters
+- Technique: Used an if statement to signal an error and display an error message
+             if the password does not contain at least 1 non letter character
 - Completion Criteria: The user does receive an error message regarding the password
                        needing at least 1 character that is not a letter
+
 **API Endpoint of 200, Landing Page, Sign Out Button Functions**
 - Objective: Landing Page has an API endpoint of 200.
 - Technique: Use Postman or other similar testing software to make a GET request for the Landing Page.
