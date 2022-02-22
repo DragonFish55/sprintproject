@@ -14,8 +14,6 @@ function LandingPage(props) {
           <HeaderComp username = {state && state.name}></HeaderComp>
         </div>
         <div className='mainpage'>
-          <div className = "title"><p></p></div>
-          <div className = "title"><p></p></div>
           <div class="center">
             <h1>Hello, welcome to the Team Z website!</h1>
             <h3>Group Members: John Paglia, Harshal Bhole, Megan Resurreccion</h3>
