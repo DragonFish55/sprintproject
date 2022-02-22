@@ -109,7 +109,7 @@ function SigninPage() {
     const passinput = document.getElementById("passinput").value;
     
     const data = {username:userinput, password:passinput};
-    console.log(data)
+    
     
     $.ajax({
       url: 'https://lit-dawn-76000.herokuapp.com/api/signin',
