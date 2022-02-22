@@ -103,38 +103,32 @@ The software application should function as intended with a user having the abil
 **Frontend Signup API test, Password Greater Than or Equal to 8 Characters**
 - Objective:
 - Technique:
-- Completion Criteria: The user does not receive an error message regarding the length
-                       of the password
+- Completion Criteria: The user does not receive an error message regarding the length of the password
 
 **Frontend Signup API test, Password Contains at least 1 Lowercase Character**
 - Objective:
 - Technique:
-- Completion Criteria: The user does not receive an error message regarding the password
-                       needing at least 1 lowercase character
+- Completion Criteria: The user does not receive an error message regarding the password needing at least 1 lowercase character
 
 **Frontend Signup API test, Password Does Not Contain at least 1 Lowercase Character**
 - Objective:
 - Technique:
-- Completion Criteria: The user does receive an error message regarding the password
-                       needing at least 1 lowercase character
+- Completion Criteria: The user does receive an error message regarding the password needing at least 1 lowercase character
 
 **Frontend Signup API test, Password Contains at least 1 Uppercase Character**
 - Objective:
 - Technique:
-- Completion Criteria: The user does not receive an error message regarding the password
-                       needing at least 1 uppercase character
+- Completion Criteria: The user does not receive an error message regarding the password needing at least 1 uppercase character
 
 **Frontend Signup API test, Password Does Not Contain at least 1 Uppercase Character**
 - Objective:
 - Technique:
-- Completion Criteria: The user does receive an error message regarding the password
-                       needing at least 1 uppercase character
+- Completion Criteria: The user does receive an error message regarding the password needing at least 1 uppercase character
 
 **Frontend Signup API test, Password Does Contain at Least 1 Non Letter Character**
 - Objective:
 - Technique:
-- Completion Criteria: The user does not receive an error message regarding the password
-                       needing at least 1 character that is not a letter
+- Completion Criteria: The user does not receive an error message regarding the password needing at least 1 character that is not a letter
 
 **Frontend Signup API test, Password Does Not Contain at Least 1 Non Letter Character**
 - Objective:

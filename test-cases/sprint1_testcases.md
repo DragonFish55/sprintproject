@@ -155,20 +155,27 @@
 #### not a letter such as a number or a special character
 ### Test Steps => 
 #### Start react frontend app locally. Then go to the signup page and create a new user
-#### by entering at least one 
+#### by not entering a password. If an error appears saying that you did not enter a non letter
+#### then the test is a success.
 ### Pre-requisities => Server that is running the signup API and our local react app
 ### Author => John Paglia
 ### Test Method => checkNotLetter(password)
-### Pass/Fail Criteria
+### Pass/Fail Criteria => The error message for not entering a letter into the signup form did appear
+#### in which case the test passed otherwise the test fails.
 
 ## Test Case 12
 ### Test Case Id => Password Has Non Letters
-### Description
-### Test Steps
+### Description => 
+#### Tests that the password input into the signup form contains at least 1 non letter character
+### Test Steps =>
+#### Create a new user and instead of entering all correct data, make confirm password or username
+#### invalie and the password field of the form valid or just containing 1 non letter and try submitting
+#### the form. If a message does not appear saying that a non letter is required then the test has passed.   
 ### Pre-requisities => Server that is running the signup API and our local react app
 ### Author => John Paglia
 ### Test Method => checkNotLetter(password)
-### Pass/Fail Criteria
+### Pass/Fail Criteria => The error message for not entering a letter into the signup form did not appear
+#### in which case the test passed otherwise the test fails.
 
 ## Test Case 13
 ### Test Case Id => Password Less Than 8 Characters
@@ -190,8 +197,10 @@
 
 ## Test Case 15
 ### Test Case Id => Username Less Than 8 Characters
-### Description
+### Description => 
+#### Test whether username entered into signup form contains at least 8 characters
 ### Test Steps
+####
 ### Pre-requisities => Server that is running the signup API and our local react app
 ### Author => John Paglia
 ### Test Method => checkLength(stringIn, length)
@@ -202,7 +211,8 @@
 ## Test Case 16
 ### Test Case Id => Username Greater Than 7 Characters
 ### Description
-### Test Steps
+### Test Steps => Enter into signup form a username less than 8 characters and see if a 
+### error message appears. If it does then the test has passed.
 ### Pre-requisities => Server that is running the signup API and our local react app
 #### that allows the user to enter data to create a user
 ### Author => John Paglia
