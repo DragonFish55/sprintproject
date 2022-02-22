@@ -3,11 +3,11 @@
 | Test Case ID                 | Group Member           | Pass/Fail | Comments                                          |
 |------------------------------|------------------------|-----------|---------------------------------------------------|
 | status_200                   | John Paglia            | Fail      | Failed due to incorrect content-type header       |
-| status_200                   | John Paglia            | Pass      | None                                              |
-| status_400                   | John Paglia            | Pass      | None                                              |
-| status_401                   | John Paglia            | Fail      | Test Failed due to not returning response code    |
-| status_401                   | John Paglia            | Pass      | None                                              |
-| status_404                   | John Paglia            | Pass      | None                                              |
+| status_200                   | John Paglia            | Pass      | After adding application/json to content test pass|
+| status_400                   | John Paglia            | Pass      | Test passed by creating invalid dataand sending   |
+| status_401                   | John Paglia            | Fail      | Test failed due to not returning response code    |
+| status_401                   | John Paglia            | Pass      | Test passed after adding response code to output  |
+| status_404                   | John Paglia            | Pass      | Test passed after entering invalid endpoint       |
 | status_500                   | John Paglia            | Pass      | None                                              |
 | signup_create                | John Paglia            | Pass      | None                                              |
 | password_nolowercase         | Megan Resurreccion     | Pass      | None                                              |
