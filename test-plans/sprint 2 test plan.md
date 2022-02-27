@@ -176,7 +176,7 @@ Megan: Test Planning
 # Schedule
 | Date | Task to Complete|
 ---------------------------
-| 2/26/22 | Create sprint 2 test plan
-| 2/27/22 | Write up Unit Test cases
-| 2/28/22 | Write up remaining test cases
-| 3/21/22 | Finish testing
+| 2/26/22 | Create sprint 2 test plan |
+| 2/27/22 | Write up Unit Test cases |
+| 2/28/22 | Write up remaining test cases |
+| 3/21/22 | Finish testing |
