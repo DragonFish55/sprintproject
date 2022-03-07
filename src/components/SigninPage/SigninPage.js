@@ -112,13 +112,17 @@ function SigninPage() {
     
     
     $.ajax({
-      url: 'https://lit-dawn-76000.herokuapp.com/api/signin',
-      //url: 'http://127.0.0.1:5000/api/signin',
+      //url: 'https://lit-dawn-76000.herokuapp.com/api/signin',
+      url: 'http://127.0.0.1:5000/api/signin',
       type: 'POST',
       crossorigin: true,
       cache:false,
       dataType: "json",
       contentType: "application/json",
+      credentials: "include",
+      xhrFields: {
+        withCredentials: true
+      },
       data:JSON.stringify(data),
       success: function(data,xhr){
         setPassError("");

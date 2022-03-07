@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sett_choices{
+    display: flex;
+    flex-direction: column;
+}
+
+.sett_choice{
+    display: flex;
+    width: 80%;
+    height: 100px;
+    background-color: green;
+    border: 1px solid black;
+    align-items: center;
+}
+
+.sett_inner{
+    display: flex;
+    flex-direction: row;
+}
+
+.sett_choice label{
+    width: 75%;
+    height: 100%;
+    
+    vertical-align: middle;
+    font-size: 1.5rem;
+}
+
+.sett_choice input[type="checkbox"]{
+    width: 50px;
+    height: 100px;
+}

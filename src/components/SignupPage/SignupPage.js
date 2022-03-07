@@ -129,8 +129,8 @@ function SignupPage() {
   function callApi(url,datain){
     $.ajax({
       //url: 'https://lit-dawn-76000.herokuapp.com/api/signup',
-      //url: 'http://127.0.0.1:5000/api/signup',
-      url: url,
+      url: 'http://127.0.0.1:5000/api/signup',
+      //url: url,
       type:'POST',
       crossorigin:true,
       cache:false,
