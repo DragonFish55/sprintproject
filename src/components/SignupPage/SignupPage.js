@@ -128,8 +128,8 @@ function SignupPage() {
   //function that calls the signup api 
   function callApi(url,datain){
     $.ajax({
-      url: 'https://gentle-island-18820.herokuapp.com/api/signup',
-      //url: 'http://127.0.0.1:5000/api/signup',
+      //url: 'https://gentle-island-18820.herokuapp.com/api/signup',
+      url: 'http://127.0.0.1:5000/api/signup',
       //url: url,
       type:'POST',
       crossorigin:true,

@@ -2,6 +2,7 @@ import './Settings.css';
 import {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import $ from 'jquery';
+import coockiecheck from '../../cookiecheck';
 
 //returns main page component of the frontend app
 function Settings(props) {
@@ -66,7 +67,12 @@ function parseCheck(){
 function callApi(){
     let checklist = []
     let querystr = ""
-    let  user = "GoodByeJ"
+    let cookies = document.cookie
+    let check = coockiecheck(cookies, "username")
+    let user = ""
+    if(check !== ""){
+      user = check
+    }
     let data_len = 0
     checklist = parseCheck()
     console.log(checklist)
@@ -95,8 +101,8 @@ function callApi(){
     console.log(querystr)
     
     $.ajax({
-        url: 'https://gentle-island-18820.herokuapp.com/api/signin',
-        //url: "http://127.0.0.1:5000/api/new/" + user + "/categories?" + querystr,
+        //url: 'https://gentle-island-18820.herokuapp.com/api/signin',
+        url: "http://127.0.0.1:5000/api/new/" + user + "/categories?" + querystr,
         type: 'GET',
         crossorigin: true,
         cache:false,
