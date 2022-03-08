@@ -128,8 +128,8 @@ function SignupPage() {
   //function that calls the signup api 
   function callApi(url,datain){
     $.ajax({
-      //url: 'https://lit-dawn-76000.herokuapp.com/api/signup',
-      url: 'http://127.0.0.1:5000/api/signup',
+      url: 'https://gentle-island-18820.herokuapp.com/api/signup',
+      //url: 'http://127.0.0.1:5000/api/signup',
       //url: url,
       type:'POST',
       crossorigin:true,
@@ -211,7 +211,7 @@ function SignupPage() {
   //input contstraints and only allows valid username and password format
   function checkSignup(){
 
-      let url = 'https://lit-dawn-76000.herokuapp.com/api/signup'
+      let url = 'https://gentle-island-18820.herokuapp.com/api/signup'
       let error = false
       let userinput = document.getElementById('userinput').value;
       let passinput = document.getElementById('passinput').value;
