@@ -43,8 +43,8 @@ function SettingsPage(props) {
     console.log(cookiename)
     if(cookiename !== null && cookiename !== ""){
       $.ajax({
-        //url: "http://127.0.0.1:5000/api/" + cookiename + "/getApiData",
-        url: "https://gentle-island-18820.herokuapp.com/" + cookiename + "/getApiData",
+        url: "http://127.0.0.1:5000/api/" + cookiename + "/getApiData",
+        //url: 'https://gentle-island-18820.herokuapp.com/api/signout',
         type: 'GET',
         crossorigin: true,
         cache:false,
@@ -57,8 +57,8 @@ function SettingsPage(props) {
       })
     } else{
       $.ajax({
-        //url: "http://127.0.0.1:5000/api/defaultApi",
-        url: 'https://gentle-island-18820.herokuapp.com/api/defaultApi',
+        url: "http://127.0.0.1:5000/api/defaultApi",
+        //url: 'https://gentle-island-18820.herokuapp.com/api/defaultApi',
         type: 'GET',
         crossorigin: true,
         cache:false,
@@ -77,8 +77,8 @@ function SettingsPage(props) {
     const user = username
     const data = {"username":user}
     $.ajax({
-      //url: 'http://127.0.0.1:5000/api/signout',
-      url: 'https://gentle-island-18820.herokuapp.com/api/signout',
+      url: 'http://127.0.0.1:5000/api/signout',
+      //url: 'https://gentle-island-18820.herokuapp.com/api/signout',
       type: 'POST',
       crossorigin: true,
       cache:false,

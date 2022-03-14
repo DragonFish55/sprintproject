@@ -19,6 +19,7 @@ function LandingPage(props) {
     let cookiename = checkCookies()
     if(cookiename !== null){
       setLogged(true)
+      console.log(cookiename)
       checkApi(cookiename)
     } else{
       setLogged(false)
@@ -44,8 +45,8 @@ function LandingPage(props) {
     const user = username
     const data = {"username":user}
     $.ajax({
-      //url: 'http://127.0.0.1:5000/api/signout',
-      url: 'https://gentle-island-18820.herokuapp.com/api/signout',
+      url: 'http://127.0.0.1:5000/api/signout',
+      //url: 'https://gentle-island-18820.herokuapp.com/api/signout',
       type: 'POST',
       crossorigin: true,
       cache:false,
@@ -75,13 +76,14 @@ function LandingPage(props) {
   function checkApi(cookiename){
     if(cookiename !== null && cookiename !== ""){
       $.ajax({
-        //url: "http://127.0.0.1:5000/api/" + cookiename + "/getApiData",
-        url: 'https://gentle-island-18820.herokuapp.com/api' + cookiename + "/getApiData",
+        url: "http://127.0.0.1:5000/api/" + cookiename + "/getApiData",
+        //url: 'https://gentle-island-18820.herokuapp.com/api/signout',
         type: 'GET',
         crossorigin: true,
         cache:false,
         success: function(data,xhr){
           if(data.dataout !== "None"){
+            console.log(data.dataout)
             setDataSaved(data.dataout)
           } else{
             checkApi(null)
@@ -94,8 +96,8 @@ function LandingPage(props) {
       })
     } else{
       $.ajax({
-        //url: "http://127.0.0.1:5000/api/top_headline/defaultApi",
-        url: 'https://gentle-island-18820.herokuapp.com/api/top_headline/defaultApi',
+        url: "http://127.0.0.1:5000/api/top_headline/defaultApi",
+        //url: 'https://gentle-island-18820.herokuapp.com/api/signout',
         type: 'GET',
         crossorigin: true,
         cache:false,
@@ -114,8 +116,8 @@ function LandingPage(props) {
       let queryEvery = document.getElementById("queryinput");
 
       $.ajax({
-        //url: "http://127.0.0.1:5000/api/everything/defaultApi?q=" + queryEvery,
-        url: "https://gentle-island-18820.herokuapp.com/api/everything/defaultApi?q=" + queryEvery,
+        url: "http://127.0.0.1:5000/api/everything/defaultApi?q=" + queryEvery,
+        //url: 'https://gentle-island-18820.herokuapp.com/api/signout',
         type: 'GET',
         crossorigin: true,
         cache:false,
@@ -143,17 +145,16 @@ function LandingPage(props) {
             <button className='everyquery'>Query Input</button>
             
           </div>
+        
           <div className = "everything">
             <p>Enter a topic to show relevant articles</p>
             <label htmlFor='queryinput'>Topic</label>
             <input type = "text" name = "queryinput" id = "queryinput" />
             <button onClick={checkEverything} name = "querysubmit" id = "querysubmit">Submit</button>
-            <NewsReel data = {datasaved}></NewsReel>
-          </div>
-          <div className = "topheadlines">
-            <NewsReel className="newsreel" data = {datasaved}></NewsReel>
+            
           </div>
           
+          <NewsReel data = {datasaved}></NewsReel>
           
         </div>
     </div>
