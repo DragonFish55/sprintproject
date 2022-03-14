@@ -1,7 +1,3 @@
-# Test Cases
-
-## Test Case #:
-
 ### Test Case Id:
 
 ### Description
@@ -15,6 +11,6 @@
 
 ### Author
 
-### Test Method:
+### Test Method
 
-### Pass/Fail Criteria 
+### Pass/Fail Criteria
