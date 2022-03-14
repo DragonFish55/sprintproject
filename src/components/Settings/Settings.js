@@ -95,7 +95,7 @@ function callApi(){
     console.log(querystr)
     
     $.ajax({
-        url: 'https://gentle-island-18820.herokuapp.com/api/signin',
+        url: "https://gentle-island-18820.herokuapp.com/" + user + "/categories?" + querystr,
         //url: "http://127.0.0.1:5000/api/new/" + user + "/categories?" + querystr,
         type: 'GET',
         crossorigin: true,

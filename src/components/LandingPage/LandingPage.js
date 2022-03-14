@@ -76,7 +76,7 @@ function LandingPage(props) {
     if(cookiename !== null && cookiename !== ""){
       $.ajax({
         //url: "http://127.0.0.1:5000/api/" + cookiename + "/getApiData",
-        url: 'https://gentle-island-18820.herokuapp.com/api/signout',
+        url: 'https://gentle-island-18820.herokuapp.com/api' + cookiename + "/getApiData",
         type: 'GET',
         crossorigin: true,
         cache:false,
@@ -95,7 +95,7 @@ function LandingPage(props) {
     } else{
       $.ajax({
         //url: "http://127.0.0.1:5000/api/top_headline/defaultApi",
-        url: 'https://gentle-island-18820.herokuapp.com/api/signout',
+        url: 'https://gentle-island-18820.herokuapp.com/api/top_headline/defaultApi',
         type: 'GET',
         crossorigin: true,
         cache:false,
@@ -115,7 +115,7 @@ function LandingPage(props) {
 
       $.ajax({
         //url: "http://127.0.0.1:5000/api/everything/defaultApi?q=" + queryEvery,
-        url: 'https://gentle-island-18820.herokuapp.com/api/signout',
+        url: "https://gentle-island-18820.herokuapp.com/api/everything/defaultApi?q=" + queryEvery,
         type: 'GET',
         crossorigin: true,
         cache:false,
