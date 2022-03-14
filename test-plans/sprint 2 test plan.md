@@ -25,6 +25,7 @@ This is Team Z's Sprint 2 test plan. In sprint 2, we create an application that 
 
 4. Database
 - Database updates with news category preferences.
+- Existing user updates their news cateogry preferences.
 
 # Approach
 The team will use unit tests, test driven development, and document the appropriate test cases and test results. Unit tests will be done manually. Test cases will be meant to fail before committing the code to then test the appropriate feature. As the tests are run and the code is constructed, the application will slowly be closer to developed to what the sprint's goals are.
@@ -35,148 +36,52 @@ The software application should function as intended whether a user is signed in
 # Testing Tasks
 
 ## Unit Testing
-****
+**- Landing page has a link/button to refresh the articles.**
 - Objective:
 - Technique:
 - Completion Criteria:
 
-****
+**- A form for signed in users to select news category preferences appears.
+**
 - Objective:
 - Technique:
 - Completion Criteria:
 
-****
-- Objective:
-- Technique:
-- Completion Criteria:
+**- Signed in users can see and click a link/button that will take them to the Settings page.
 
-****
-- Objective:
-- Technique:
-- Completion Criteria:
-
-****
-- Objective:
-- Technique:
-- Completion Criteria:
 
 ## User Acceptance Testing
 
-****
+**- Signed in users can see and click a link/button that will take them to the Settings page.
+**
 - Objective:
 - Technique:
 - Completion Criteria:
+
+**- Non-signed in users sees a list of articles that are from the General news category.**
+- Objective:
+- Technique:
+- Completion Criteria:
+
+- At least one item on the form is selected and there is a way to cancel the changes.
+
+- When user submits or cancels, it takes them back to the landing page.
+
+
+## API Testing
+- GET request for retrieving new articles when no user is signed in. API response of 200 received.
+- GET request for retrieving articles when a user is signed in. API response of 200 received.
 
 ## Integration Testing
-
-****
-- Objective:
-- Technique:
-- Completion Criteria:
-
-****
-- Objective:
-- Technique:
-- Completion Criteria:
-
-****
-- Objective:
-- Technique:
-- Completion Criteria:
-
-****
-- Objective:
-- Technique:
-- Completion Criteria:
-
-****
-- Objective:
-- Technique:
-- Completion Criteria:
-
-****
-- Objective:
-- Technique:
-- Completion Criteria:
-
-****
-- Objective:
-- Technique:
-- Completion Criteria:
-
-****
-- Objective:
-- Technique:
-- Completion Criteria:
-
-****
-- Objective:
-- Technique:
-- Completion Criteria:
-
-****
-- Objective:
-- Technique:
-- Completion Criteria:
-
-****
-- Objective:
-- Technique:
-- Completion Criteria:
-
-****
-- Objective:
-- Technique:
-- Completion Criteria:
-
-****
-- Objective:
-- Technique:
-- Completion Criteria:
-
-****
-- Objective:
-- Technique:
-- Completion Criteria:
-
-****
-- Objective:
-- Technique:
-- Criteria:
-
-## User Acceptance Testing
-****
-- Objective:
-- Technique:
-- Completion Criteria:
-
-****
-- Objective:
-- Technique:
-- Completion Criteria:
-
-****
-- Objective:
-- Technique:
-- Completion Criteria:
-
-****
-- Objective:
-- Technique:
-- Completion Criteria:
-
-## Integration Testing
-****
-- Objective:
-- Technique:
-- Completion Criteria:
+- Database updates with news category preferences.
+- Existing user updates their news cateogry preferences.
 
 # Responsibilities
-John:
+John: Backend Development and Backend Testing
 
-Harshal:
+Harshal: Front End Development
 
-Megan: Test Planning
+Megan: Test Planning and Frontend Testing
 
 # Schedule
 | Date | Task to Complete|
