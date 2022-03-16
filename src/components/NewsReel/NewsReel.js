@@ -38,17 +38,34 @@ function NewsReel(props) {
                                         props.data[index][1].articles.map((object2, index2) => {
                                             return (
                                                 <div className='dataentry' key={index2}>
+                                                    <div className='data_title'>
+                                                        {props.data[index][1].articles[index2].title}
+                                                    </div>
+                                                    <div className="data_source">
+                                                        <p>Read more at <span><a href = {props.data[index][1].articles[index2].url}>{props.data[index][1].articles[index2].source.name}</a></span></p>
+                                                        
+                                                    </div>
+                                                    <div className="data_image">
+                                                        <img 
+                                                        src={props.data[index][1].articles[index2].urlToImage}
+                                                        alt="pic1"
+                                                        width="100px"
+                                                        height="100px" />
+                                                    </div>
                                                     <div className='data_desc'> 
                                                         {props.data[index][1].articles[index2].description}
                                                     </div>
-                                                    <div className = "data_source">
-                                                        <div className='data_url'> 
-                                                            {props.data[index][1].articles[index2].url}
-                                                        </div>
-                                                        <div className='data_name'> 
-                                                            {props.data[index][1].articles[index2].name}
-                                                        </div>
+
+                                                    <div className='data_published'> 
+                                                        {props.data[index][1].articles[index2].publishedAt}
                                                     </div>
+                                                    {
+                                                        props.data[index][1].articles[index2].author && 
+                                                        <div className='data_author'> 
+                                                            <p>Author: {props.data[index][1].articles[index2].author}</p> 
+                                                        </div>
+                                                    }
+                                                    
                                                     
                                                 </div>
                                             )
