@@ -1,13 +1,10 @@
 import './Settings.css';
-import {useEffect, useState} from 'react'
-import { useNavigate } from 'react-router-dom';
 import $ from 'jquery';
 import coockiecheck from '../../cookiecheck';
 
 //returns main page component of the frontend app
 function Settings(props) {
-    const checkout = document.getElementsByClassName("checkout");
-    const checkq = document.getElementById("checkq");
+   
     const checkb = document.getElementsByClassName("checkb")
     
   
@@ -46,7 +43,7 @@ function Settings(props) {
             </div>
         </div>
         
-        <button onClick={callApi} id = "checkq">Check</button>
+        <button onClick={updateSettings} id = "checkq">Check</button>
     </div>
   )
 
@@ -63,8 +60,9 @@ function parseCheck(){
     return checklist1
 }
 
-
-function callApi(){
+//Based on which checkboxes are checked the users categories 
+//are updated
+function updateSettings(){
     let checklist = []
     let querystr = ""
     let cookies = document.cookie
@@ -83,15 +81,9 @@ function callApi(){
     let keys = Object.keys(data)
     let values = Object.values(data)
     console.log(data_len)
-            //let data_len = 0
-    //if(other == false){
-    //    data_len = data_length
-    //}
-    //else{
-    //    data_len = data_length - 1
-    //}
+  
     for(let i = 0; i < data_len; i++){
-        if(i != data_len-1){
+        if(i !== data_len-1){
             querystr = querystr + keys[i] + "=" + values[i] + "&";
         }else{
             querystr = querystr + keys[i] + "=" + values[i];
@@ -108,6 +100,11 @@ function callApi(){
         cache:false,
         success: function(data,xhr){
             console.log(data)
+            if(data.dataout === "true") {
+                return true
+            } else {
+                return false
+            }
         },
         error: function(request,error){
           console.log(error);
