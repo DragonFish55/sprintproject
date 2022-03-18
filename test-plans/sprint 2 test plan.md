@@ -43,9 +43,63 @@ The software application should function as intended whether a user is signed in
 # Testing Tasks
 
 ## Unit Testing
-**- Landing page has a link/button to refresh the articles.**
-- Objective:
-- Technique:
+
+# Frontend
+
+
+
+# Backend
+
+**- Signup API 401**
+- Objective: Test that given a username and password will not create a new user because the
+user already exists
+- Completion Criteria: data returned is a string value of "false" and a response code of 401 is
+returned
+
+**- Signup API 200**
+- Objective: Test 
+- Completion Criteria:
+
+**- Signin API 401**
+- Objective: Test that simulates a user being deleted if they exist and calling the signin api to test that a 401 error code was returned
+- Completion Criteria: A response code of 401 and true values for the user and password error values that are returned. Signifying invalid user tried logging in
+
+**- Signin API 200**
+- Objective: Test that simulates a user account being created and
+alling the signin api to test that it works
+- Completion Criteria: A response code of 200 and a value of false
+for the user and password errora indicating valid user and password
+
+**- Query Categories API 401**
+- Objective: Test 
+- Completion Criteria:
+
+**- Query Categories API 200 None**
+- Objective: Test 
+- Completion Criteria:
+
+**- Query Categories API 200 Exists**
+- Objective: Test 
+- Completion Criteria:
+
+**- Update Categories API 401**
+- Objective: Test 
+- Completion Criteria:
+
+**- Update Categories API 200 Add**
+- Objective: Test 
+- Completion Criteria:
+
+**- Update Categories API 200 Remove**
+- Objective: Test 
+- Completion Criteria:
+
+**- Default Categories API 200**
+- Objective: Test 
+- Completion Criteria:
+
+**- Default Categories API 401**
+- Objective: Test 
 - Completion Criteria:
 
 **- A form for signed in users to select news category preferences appears.
@@ -75,16 +129,26 @@ The software application should function as intended whether a user is signed in
 - Completion Criteria: The user is redirected to the landing page and the updated user's categories are reflected on the data retrieved from the newsapi
 
 **- Non-signed in users sees a list of articles that are from the General news category.**
-- Objective:
-- Technique:
-- Completion Criteria:
+- Objective: As long as the user is not signed in and they are on the landing page the news api will only retrieve and display data from the general category
+- Completion Criteria: On load of the landing page the user is not signed in and only general ctaegory data is retrieved from the api
 
-- At least one item on the form is selected and there is a way to cancel the changes.
+**- The Settings page contains a form composed of multiple category buttons as well as a button to submit them
+**
+- Objective: Landing page displays a settings button which will redirect them to the settings page as long as the are already logged in
+- Completion Criteria: The user is redirected to the settings page on button click
 
-- When user submits or cancels, it takes them back to the landing page.
+**-  The Landing page contains a refresh button to retrieve newer api data for all possible categories
+**
+- Objective: Rather than just refreshing the page every time the user can click a button to get new data and display the data on the landing page
+- Completion Criteria: On button click new data for each category is retrieved from the newsapi endpoint and the data is updated on the landing page
 
 
 ## API Testing
+
+- GET request for updating user category settings when no user is signed in. 
+- GET request for retrieving articles when a user is signed in. API response of 200 received.- GET request for retrieving new articles when no user is signed in. API response of 200 received.
+- GET request for retrieving articles when a user is signed in. API response of 200 received.- GET request for retrieving new articles when no user is signed in. API response of 200 received.
+- GET request for retrieving articles when a user is signed in. API response of 200 received.
 - GET request for retrieving new articles when no user is signed in. API response of 200 received.
 - GET request for retrieving articles when a user is signed in. API response of 200 received.
 

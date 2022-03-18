@@ -7,25 +7,21 @@ import coockiecheck from '../../cookiecheck';
 import NewsReel from '../NewsReel/NewsReel';
 
 //returns main page component of the frontend app
-function LandingPage(props) {
+function LandingPage() {
   
   const [datasaved, setDataSaved] = useState(null)
   const [username, setUserName] = useState(null)
-  const [logged, setLogged] = useState(null)
   const navigate = useNavigate();
-  let log1 = false
 
   useEffect( () => {
     let cookiename = checkCookies()
     if(cookiename !== null){
-      setLogged(true)
       console.log(cookiename)
       checkApi(cookiename)
     } else{
-      setLogged(false)
       checkApi(null)
     }
-  }, []);
+  }, [checkApi]);
   
   function checkCookies(){
     let cookies = document.cookie
@@ -59,7 +55,6 @@ function LandingPage(props) {
       data:JSON.stringify(data),
       success: function(data,xhr){
         if(data.user_error === "true"){
-          setLogged(null);
           checkApi(null)
           checkCookies();
           navigate('/');
@@ -112,6 +107,7 @@ function LandingPage(props) {
     
   }
 
+  /*
   function checkEverything(){
       let queryEvery = document.getElementById("queryinput");
 
@@ -130,6 +126,16 @@ function LandingPage(props) {
         }
       })
   }
+  */
+
+  function Refresh(){
+    let cookiename = checkCookies()
+    if(cookiename !== null){
+      checkApi(cookiename)
+    } else{
+      checkApi(null)
+    }
+  }
   
   
   return (
@@ -141,18 +147,10 @@ function LandingPage(props) {
         <div className='mainpage'>
         <p className = "reeltitle">News Reel</p>
           <div className = "sections">
-            <button className='topquery'>Top Headlines</button>
-            <button className='everyquery'>Query Input</button>
-            
+            <button className='refresh' onClick={Refresh}>Refresh</button>
           </div>
         
-          <div className = "everything">
-            <p>Enter a topic to show relevant articles</p>
-            <label htmlFor='queryinput'>Topic</label>
-            <input type = "text" name = "queryinput" id = "queryinput" />
-            <button onClick={checkEverything} name = "querysubmit" id = "querysubmit">Submit</button>
-            
-          </div>
+
           
           <NewsReel data = {datasaved}></NewsReel>
           
