@@ -5,8 +5,13 @@ This is Team Z's Sprint 2 test plan. In sprint 2, we create an application that 
 # Test Items
 1. Home Page
 2. Settings Page
-3. News REST API
-4. Heroku Database
+3. News Category REST API
+4. Default Category API
+5. Settings API
+6. Signin API
+7. Signup API
+8. Cookie Addition 
+9. Local Database
 
 # Features to be Tested
 1. Home Page Features
@@ -16,7 +21,9 @@ This is Team Z's Sprint 2 test plan. In sprint 2, we create an application that 
 
 2. Settings Page Features
 - A form for signed in users to select news category preferences.
-- At least one item on the form is selected and there is a way to cancel the changes.
+- A user can select all or no preferences
+- When user submits the categories are updated in the database
+- Non selected choices remove categories from the database on submit
 - When user submits or cancels, it takes them back to the landing page.
 
 3. News REST API
@@ -28,7 +35,7 @@ This is Team Z's Sprint 2 test plan. In sprint 2, we create an application that 
 - Existing user updates their news cateogry preferences.
 
 # Approach
-The team will use unit tests, test driven development, and document the appropriate test cases and test results. Unit tests will be done manually. Test cases will be meant to fail before committing the code to then test the appropriate feature. As the tests are run and the code is constructed, the application will slowly be closer to developed to what the sprint's goals are.
+The team will use manual tests, unit tests, and test driven development tests, and document the appropriate test cases and test results. Test cases will be meant to fail before committing the code to then test the appropriate feature. As the tests are run and the code is constructed, the application will slowly be closer to developed to what the sprint's goals are.
 
 # Pass/Fail Criteria
 The software application should function as intended whether a user is signed in or not to the application. A non-signed in user should be able to view the landing page with general news articles. A signed in user will be able to navigate the landing page according to their news preferences from the settings page (should they have selected any). When the settings page form is utilized, the Heroku database should update with that user's selections and the landing page should reflect that. There should not be any critical bugs affecting these functions. In addition the server should be able to respond to various types of status code errors.
@@ -52,11 +59,20 @@ The software application should function as intended whether a user is signed in
 
 ## User Acceptance Testing
 
-**- Signed in users can see and click a link/button that will take them to the Settings page.
+**- Signed in users can see and click a link/button on the landing page that will take them to the Settings page.
 **
-- Objective:
-- Technique:
-- Completion Criteria:
+- Objective: Users can click on a settings button that will redirect them to the settings page 
+- Completion Criteria: As long as the user is redirected to the settings page the test passes. Otherwise the test fails
+
+**- Signed in users can click on any number of checkboxes on settings page and the categories are added to their account.
+**
+- Objective: Allow the user to add newsapi query categories to their account and at a later time query the newsapi for relevant data
+- Completion Criteria: The user is redirected to the landing page and the updated user's categories are reflected on the data retrieved from the newsapi
+
+**- Settings page displays list of checkboxes that the user can interact with 
+**
+- Objective: Checkboxes are properly displayed on the settings page
+- Completion Criteria: The user is redirected to the landing page and the updated user's categories are reflected on the data retrieved from the newsapi
 
 **- Non-signed in users sees a list of articles that are from the General news category.**
 - Objective:

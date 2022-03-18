@@ -1,15 +1,16 @@
 import './Settings.css';
 import {useEffect, useState} from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import $ from 'jquery';
 import coockiecheck from '../../cookiecheck';
+
 
 //returns main page component of the frontend app
 function Settings(props) {
     const checkout = document.getElementsByClassName("checkout");
     const checkq = document.getElementById("checkq");
     const checkb = document.getElementsByClassName("checkb")
-    
+    const navigate = useNavigate();
   
   return (
     <div className="settings">
@@ -108,6 +109,7 @@ function callApi(){
         cache:false,
         success: function(data,xhr){
             console.log(data)
+            navigate('/')
         },
         error: function(request,error){
           console.log(error);
