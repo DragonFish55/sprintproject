@@ -10,7 +10,7 @@ This is Team Z's Sprint 2 test plan. In sprint 2, we create an application that 
 5. Settings API
 6. Signin API
 7. Signup API
-8. Cookie Addition 
+8. Cookie Addition
 9. Local Database
 
 # Features to be Tested
@@ -37,18 +37,72 @@ This is Team Z's Sprint 2 test plan. In sprint 2, we create an application that 
 # Approach
 The team will use manual tests, unit tests, and test driven development tests, and document the appropriate test cases and test results. Test cases will be meant to fail before committing the code to then test the appropriate feature. As the tests are run and the code is constructed, the application will slowly be closer to developed to what the sprint's goals are.
 
+Unit test methodology will be **insert later**
+
 # Pass/Fail Criteria
 The software application should function as intended whether a user is signed in or not to the application. A non-signed in user should be able to view the landing page with general news articles. A signed in user will be able to navigate the landing page according to their news preferences from the settings page (should they have selected any). When the settings page form is utilized, the Heroku database should update with that user's selections and the landing page should reflect that. There should not be any critical bugs affecting these functions. In addition the server should be able to respond to various types of status code errors.
 
 # Testing Tasks
 
+## Frontend
+**- Landing Page Guest**
+- Objective: Test that stimulates guest user viewing article list
+- Completion Criteria: Landing page displays general articles and the login icon
+
+**- Landing Page Refresh**
+- Objective: Test that stimulates a user selecting the refresh button or link
+- Completion Criteria: Landing page display user-preferred articles for users and general articles for guests
+
+**- Landing Page Settings Button**
+- Objective: Test that stimulates a logged-in user having access to user settings button
+- Completion Criteria: Landing page display user-preferred articles and the setting icon
+
+**- Settings Page Form**
+- Objective: Test that displays the user's news preference form with several categories
+- Completion Criteria: Settings page displays full preference form with a submit button
+
+**- Form Item Selection**
+- Objective: Test that shows that at least one item preference can be selected and there is an option to cancel the changes
+- Completion Criteria: Form displays chosen items being selected.
+
+**- Settings Submit/Cancel Button**
+- Objective: Test that leads user from the settings page to the landing page from either the submit or cancel button.
+- Completion: User successfully is navigated back to the landing page.
+
 ## Unit Testing
 
-# Frontend
+**- Cancel Button Function**
+- Objective: Clicking on cancel button in the settings form will send user back to the landing page.
+
+**- Submit Button Function**
+- Objective: Clicking on submit button in the settings form will send user back to the landing page.
+
+**- Item Selection**
+- Objective: User can select and de-select several preference items in the form.
+
+**- Settings Icon**
+- Objective: Signed in user sees the settings icon in the nav bar.
+
+**- Settings Function**
+- Objective: Signed in user can click on the settings icon and be taken to the settings page.
+
+**- Landing Refresh Option**
+- Objective: User has option to refresh the page via a refresh button.
+
+**- Landing Refresh Function**
+- Objective: New articles will be displayed after clicking the refresh button.
+
+**- User Saved Preferences**
+- Objective: Selected user preferences submitted and saved into database.
+
+**- Signed In User Name Displayed**
+- Objective: Signed in user can see their username on the landing page.
+
+**- Guest User Login Button Displayed**
+- Objective: User can see login button on the landing page when not signed in.
 
 
-
-# Backend
+## Backend
 
 **- Signup API 401**
 - Objective: Test that given a username and password will not create a new user because the
@@ -57,7 +111,7 @@ user already exists
 returned
 
 **- Signup API 200**
-- Objective: Test 
+- Objective: Test
 - Completion Criteria:
 
 **- Signin API 401**
@@ -65,87 +119,72 @@ returned
 - Completion Criteria: A response code of 401 and true values for the user and password error values that are returned. Signifying invalid user tried logging in
 
 **- Signin API 200**
-- Objective: Test that simulates a user account being created and
-alling the signin api to test that it works
+- Objective: Test that simulates a user account being created and calling the signin api to test that it works
 - Completion Criteria: A response code of 200 and a value of false
 for the user and password errora indicating valid user and password
 
 **- Query Categories API 401**
-- Objective: Test 
+- Objective: Test
 - Completion Criteria:
 
 **- Query Categories API 200 None**
-- Objective: Test 
+- Objective: Test
 - Completion Criteria:
 
 **- Query Categories API 200 Exists**
-- Objective: Test 
+- Objective: Test
 - Completion Criteria:
 
 **- Update Categories API 401**
-- Objective: Test 
+- Objective: Test
 - Completion Criteria:
 
 **- Update Categories API 200 Add**
-- Objective: Test 
+- Objective: Test
 - Completion Criteria:
 
 **- Update Categories API 200 Remove**
-- Objective: Test 
+- Objective: Test
 - Completion Criteria:
 
 **- Default Categories API 200**
-- Objective: Test 
+- Objective: Test
 - Completion Criteria:
 
 **- Default Categories API 401**
-- Objective: Test 
+- Objective: Test
 - Completion Criteria:
-
-**- A form for signed in users to select news category preferences appears.
-**
-- Objective:
-- Technique:
-- Completion Criteria:
-
-**- Signed in users can see and click a link/button that will take them to the Settings page.
-
 
 ## User Acceptance Testing
 
-**- Signed in users can see and click a link/button on the landing page that will take them to the Settings page.
-**
-- Objective: Users can click on a settings button that will redirect them to the settings page 
+**- Signed in users can see and click a link/button on the landing page that will take them to the Settings page.**
+- Objective: Users can click on a settings button that will redirect them to the settings page
 - Completion Criteria: As long as the user is redirected to the settings page the test passes. Otherwise the test fails
 
-**- Signed in users can click on any number of checkboxes on settings page and the categories are added to their account.
-**
+**- Signed in users can click on any number of checkboxes on settings page and the categories are added to their account.**
 - Objective: Allow the user to add newsapi query categories to their account and at a later time query the newsapi for relevant data
 - Completion Criteria: The user is redirected to the landing page and the updated user's categories are reflected on the data retrieved from the newsapi
 
-**- Settings page displays list of checkboxes that the user can interact with 
-**
+**- Settings page displays list of checkboxes that the user can interact with**
 - Objective: Checkboxes are properly displayed on the settings page
 - Completion Criteria: The user is redirected to the landing page and the updated user's categories are reflected on the data retrieved from the newsapi
 
 **- Non-signed in users sees a list of articles that are from the General news category.**
 - Objective: As long as the user is not signed in and they are on the landing page the news api will only retrieve and display data from the general category
-- Completion Criteria: On load of the landing page the user is not signed in and only general ctaegory data is retrieved from the api
+- Completion Criteria: On load of the landing page the user is not signed in and only general category data is retrieved from the api
 
-**- The Settings page contains a form composed of multiple category buttons as well as a button to submit them
-**
+**- The Settings page contains a form composed of multiple category buttons as well as a button to submit them**
 - Objective: Landing page displays a settings button which will redirect them to the settings page as long as the are already logged in
 - Completion Criteria: The user is redirected to the settings page on button click
 
-**-  The Landing page contains a refresh button to retrieve newer api data for all possible categories
-**
+**-  The Landing page contains a refresh button to retrieve newer api data for all possible categories**
 - Objective: Rather than just refreshing the page every time the user can click a button to get new data and display the data on the landing page
 - Completion Criteria: On button click new data for each category is retrieved from the newsapi endpoint and the data is updated on the landing page
 
 
 ## API Testing
 
-- GET request for updating user category settings when no user is signed in. 
+- GET request for updating user category settings when no user is signed in.
 - GET request for retrieving articles when a user is signed in. API response of 200 received.- GET request for retrieving new articles when no user is signed in. API response of 200 received.
 - GET request for retrieving articles when a user is signed in. API response of 200 received.- GET request for retrieving new articles when no user is signed in. API response of 200 received.
 - GET request for retrieving articles when a user is signed in. API response of 200 received.
@@ -154,7 +193,7 @@ for the user and password errora indicating valid user and password
 
 ## Integration Testing
 - Database updates with news category preferences.
-- Existing user updates their news cateogry preferences.
+- Existing user updates their news category preferences.
 
 # Responsibilities
 John: Backend Development and Backend Testing
