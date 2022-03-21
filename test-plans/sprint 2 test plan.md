@@ -65,6 +65,31 @@ The software application should function as intended whether a user is signed in
 
 # Testing Tasks
 
+## Frontend
+**- Landing Page Guest**
+- Objective: Test that stimulates guest user viewing article list
+- Completion Criteria: Landing page displays general articles and the login icon
+
+**- Landing Page Refresh**
+- Objective: Test that stimulates a user selecting the refresh button or link
+- Completion Criteria: Landing page display user-preferred articles for users and general articles for guests
+
+**- Landing Page Settings Button**
+- Objective: Test that stimulates a logged-in user having access to user settings button
+- Completion Criteria: Landing page display user-preferred articles and the setting icon
+
+**- Settings Page Form**
+- Objective: Test that displays the user's news preference form with several categories
+- Completion Criteria: Settings page displays full preference form with a submit button
+
+**- Form Item Selection**
+- Objective: Test that shows that at least one item preference can be selected and there is an option to cancel the changes
+- Completion Criteria: Form displays chosen items being selected.
+
+**- Settings Submit/Cancel Button**
+- Objective: Test that leads user from the settings page to the landing page from either the submit or cancel button.
+- Completion: User successfully is navigated back to the landing page.
+
 ## Unit Testing
 
 # Backend
@@ -86,48 +111,46 @@ returned
 - Completion Criteria: A response code of 401 and true values for the user and password error values are returned. Signifying invalid user tried logging in.
 
 **- Signin API 200**
-- Objective: Test that simulates a user account being created and
-alling the signin api to test that it works
+- Objective: Test that simulates a user account being created and calling the signin api to test that it works
 - Completion Criteria: A response code of 200 and a value of false
 for the user and password errora indicating valid user and password
 
 **- Query Categories API 401**
-- Objective: Test 
+- Objective: Test
 - Completion Criteria:
 
 **- Query Categories API 200 None**
-- Objective: Test 
+- Objective: Test
 - Completion Criteria:
 
 **- Query Categories API 200 Exists**
-- Objective: Test 
+- Objective: Test
 - Completion Criteria:
 
 **- Update Categories API 401**
-- Objective: Test 
+- Objective: Test
 - Completion Criteria:
 
 **- Update Categories API 200 Add**
-- Objective: Test 
+- Objective: Test
 - Completion Criteria:
 
 **- Update Categories API 200 Remove**
-- Objective: Test 
+- Objective: Test
 - Completion Criteria:
 
 **- Default Categories API 200**
-- Objective: Test 
+- Objective: Test
 - Completion Criteria:
 
 **- Default Categories API 401**
-- Objective: Test 
+- Objective: Test
 - Completion Criteria:
 
 ## User Acceptance Testing (Manual Testing)
 
-**- Signed in users can see and click a link/button on the landing page that will take them to the Settings page.
-**
-- Objective: Users can click on a settings button that will redirect them to the settings page 
+**- Signed in users can see and click a link/button on the landing page that will take them to the Settings page.**
+- Objective: Users can click on a settings button that will redirect them to the settings page
 - Completion Criteria: As long as the user is redirected to the settings page the test passes. Otherwise the test fails
 
 **- Signed in users can click on any number of checkboxes on settings page and the categories are added or removed from their account on clicking submit.
@@ -135,28 +158,25 @@ for the user and password errora indicating valid user and password
 - Objective: Allow the user to add newsapi query categories to their account and at a later time query the newsapi for relevant data
 - Completion Criteria: The user is redirected to the landing page and the updated user's categories are reflected on the data retrieved from the newsapi
 
-**- Settings page displays list of checkboxes that the user can interact with 
-**
+**- Settings page displays list of checkboxes that the user can interact with**
 - Objective: Checkboxes are properly displayed on the settings page
 - Completion Criteria: The user is redirected to the landing page and the updated user's categories are reflected on the data retrieved from the newsapi
 
 **- Non-signed in users sees a list of articles that are from the General news category.**
 - Objective: As long as the user is not signed in and they are on the landing page the news api will only retrieve and display data from the general category
-- Completion Criteria: On load of the landing page the user is not signed in and only general ctaegory data is retrieved from the api
+- Completion Criteria: On load of the landing page the user is not signed in and only general category data is retrieved from the api
 
-**- The Settings page contains a form composed of multiple category buttons as well as a button to submit them
-**
+**- The Settings page contains a form composed of multiple category buttons as well as a button to submit them**
 - Objective: Landing page displays a settings button which will redirect them to the settings page as long as the are already logged in
 - Completion Criteria: The user is redirected to the settings page on button click
 
-**-  The Landing page contains a refresh button to retrieve newer api data for all possible categories
-**
+**-  The Landing page contains a refresh button to retrieve newer api data for all possible categories**
 - Objective: Rather than just refreshing the page every time the user can click a button to get new data and display the data on the landing page
 - Completion Criteria: On button click new data for each category is retrieved from the newsapi endpoint and the data is updated on the landing page
 
 ## Integration Testing
 - Database updates with news category preferences.
-- Existing user updates their news cateogry preferences.
+- Existing user updates their news category preferences.
 
 # Responsibilities
 John: Backend Development and Backend Testing
