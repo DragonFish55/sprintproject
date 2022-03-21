@@ -21,7 +21,7 @@ function LandingPage() {
     } else{
       checkApi(null)
     }
-  }, [checkApi]);
+  }, []);
   
   function checkCookies(){
     let cookies = document.cookie
@@ -90,6 +90,7 @@ function LandingPage() {
         }
       })
     } else{
+      console.log("hi")
       $.ajax({
         url: "http://127.0.0.1:5000/api/top_headline/defaultApi",
         //url: 'https://gentle-island-18820.herokuapp.com/api/signout',
@@ -152,7 +153,7 @@ function LandingPage() {
         
 
           
-          <NewsReel data = {datasaved}></NewsReel>
+          <NewsReel id = "newsreel" data = {datasaved}></NewsReel>
           
         </div>
     </div>

@@ -1,13 +1,14 @@
 import './Settings.css';
 import $ from 'jquery';
 import coockiecheck from '../../cookiecheck';
+import { useNavigate } from 'react-router-dom';
 
 
 //returns main page component of the frontend app
 function Settings(props) {
    
     const checkb = document.getElementsByClassName("checkb")
-    const navigate = useNavigate();
+    const navigate = useNavigate()
   
   return (
     <div className="settings">
@@ -44,7 +45,7 @@ function Settings(props) {
             </div>
         </div>
         
-        <button onClick={updateSettings} id = "checkq">Check</button>
+        <button onClick={updateSettings} id = "checkq">Submit</button>
     </div>
   )
 
@@ -102,6 +103,7 @@ function updateSettings(){
         success: function(data,xhr){
             console.log(data)
             if(data.dataout === "true") {
+                navigate('/')
                 return true
             } else {
                 return false
