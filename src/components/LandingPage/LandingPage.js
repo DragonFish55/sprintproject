@@ -16,7 +16,6 @@ function LandingPage() {
   useEffect( () => {
     let cookiename = checkCookies()
     if(cookiename !== null){
-      console.log(cookiename)
       checkApi(cookiename)
     } else{
       checkApi(null)
@@ -90,7 +89,6 @@ function LandingPage() {
         }
       })
     } else{
-      console.log("hi")
       $.ajax({
         url: "http://127.0.0.1:5000/api/top_headline/defaultApi",
         //url: 'https://gentle-island-18820.herokuapp.com/api/signout',

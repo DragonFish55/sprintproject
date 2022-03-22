@@ -75,14 +75,12 @@ function updateSettings(){
     }
     let data_len = 0
     checklist = parseCheck()
-    console.log(checklist)
     let data = {"general":checklist[0], "business":checklist[1],
             "entertainment":checklist[2], "health":checklist[3],
             "science":checklist[4], "sports":checklist[5], "technology":checklist[6]};
     data_len = Object.keys(data).length
     let keys = Object.keys(data)
     let values = Object.values(data)
-    console.log(data_len)
   
     for(let i = 0; i < data_len; i++){
         if(i !== data_len-1){
@@ -91,8 +89,6 @@ function updateSettings(){
             querystr = querystr + keys[i] + "=" + values[i];
         } 
     }
-
-    console.log(querystr)
     
     $.ajax({
         //url: 'https://gentle-island-18820.herokuapp.com/api/signin',
@@ -101,7 +97,6 @@ function updateSettings(){
         crossorigin: true,
         cache:false,
         success: function(data,xhr){
-            console.log(data)
             if(data.dataout === "true") {
                 navigate('/')
                 return true
