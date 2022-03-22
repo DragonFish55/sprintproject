@@ -12,7 +12,7 @@ function Settings(props) {
   
   return (
     <div className="settings">
-        <div className="sett_title"></div>
+        <div className="sett_title"><p>Settings:</p></div>
         <div className="sett_choices">
             <div className="sett_choice">
                 <label htmlFor="gen_box">General</label>

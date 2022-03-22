@@ -1,6 +1,6 @@
 # Introduction
 ## Team Z: Harshal Bhole, John Paglia, Megan Resurreccion
-This is Team Z's Sprint 2 test plan. In sprint 2, we create an application that is a personal news feed that displays General news headlines when a user is signed out and allows for signed in users to customize news headlines. News headlines will be obtained from https://newsapi.org.
+This is Team Z's Sprint 2 test plan. In sprint 2, we created an application that is a personal news feed that displays General news headlines when a user is signed out and allows for signed in users to customize news headlines. When the user is logged in news data that is relevant to the categories saved in the user's account will be retrieved. News headlines will be obtained from https://newsapi.org.
 
 # Test Items
 1. Landing Page
@@ -61,7 +61,7 @@ This is Team Z's Sprint 2 test plan. In sprint 2, we create an application that 
 The team will use manual tests, unit tests, and test driven development tests, and document the appropriate test cases and test results. For the unit tests including the test driven development tests the unit tests will be completed using the python unittest package. For test driven development test cases they are initially added after the previous sprint without adding any extra code and run so they will be meant to fail. Then after adding the new code the test driven unittests are run again before committing the code to then test the appropriate feature and obtain correct results. As the tests are run and the code is constructed, the application will slowly be closer to developed to what the sprint's goals are.
 
 # Pass/Fail Criteria
-The software application should function as intended whether a user is signed in or not to the application. A non-signed in user should be able to view the landing page with general news articles. A signed in user will be able to navigate the landing page according to their news preferences from the settings page (should they have selected any). When the settings page form is utilized, the Heroku database should update with that user's selections and the landing page should reflect that. There should not be any critical bugs affecting these functions. In addition the server should be able to respond to various types of status code errors.
+The software application should function as intended whether a user is signed in or not to the application. A non-signed in user should be able to view the landing page with general news articles. A signed in user will be able to navigate the landing page, and according to their news preferences from the settings page (should they have selected any) view related articles. When the settings page form is utilized, the local postgres database should update with that user's selections and the landing page should reflect that. There should not be any critical bugs affecting these functions. The user session is also persistent as well as the data and a session cookie is added to the user's browser on login. In addition the server should be able to respond to various types of status codes.
 
 # Testing Tasks
 
@@ -94,7 +94,7 @@ The software application should function as intended whether a user is signed in
 
 # Backend
 
-### Python Unittest Package was used for all API testing ###
+### Python Unittest Methodology was used for all API testing ###
 
 **- Signup API 401**
 - Objective: Tests that given a username and password a new user will not be created because the
@@ -116,36 +116,36 @@ returned
 for the user and password errora indicating valid user and password
 
 **- Query Categories API 401**
-- Objective: Test
-- Completion Criteria:
+- Objective: Test that simulates an invalid user accessing the api. If so only "None" and a 401 status code are returned 
+- Completion Criteria: Invalid user detected by invalid username so 401 status code returned.
 
 **- Query Categories API 200 None**
-- Objective: Test
-- Completion Criteria:
+- Objective: Tests that given a new user that has no categories the test checks against the data returned being "None"
+- Completion Criteria: Value returned for data is none which indicates that general information be queried
 
 **- Query Categories API 200 Exists**
-- Objective: Test
-- Completion Criteria:
+- Objective: Tests that given new user thats has at least one category a response code of 200 will be returned and the data will not be "None" 
+- Completion Criteria: Data returned is the json data of the queried categories and a response code of 200
 
 **- Update Categories API 401**
 - Objective: Test
 - Completion Criteria:
 
 **- Update Categories API 200 Add**
-- Objective: Test
-- Completion Criteria:
+- Objective: Test that creates new temporary user and adds a category to the user account by calling the api. Then tests whether the category was added successfully
+- Completion Criteria: The category string exists in the users account
 
 **- Update Categories API 200 Remove**
-- Objective: Test
-- Completion Criteria:
+- Objective: Test that createes a new temporary user and adds a category to the user's account by calling the api. If the string exists in the account remove the string. Then if the category string was removed successfully the test passes.
+- Completion Criteria: The category string is added to the user's account and is then removed.
 
 **- Default Categories API 200**
-- Objective: Test
-- Completion Criteria:
+- Objective: Tests that given a valid newsapi entry type (top_headline) the api would return 200 status code as well as the json data queried
+- Completion Criteria: Data received from default api and response code of 200 recevied
 
 **- Default Categories API 401**
-- Objective: Test
-- Completion Criteria:
+- Objective: Tests that given an invalid newsapi entry type the api would return 401 status code as well as a "None" value
+- Completion Criteria: 401 response code returned
 
 ## User Acceptance Testing (Manual Testing)
 
@@ -159,12 +159,24 @@ for the user and password errora indicating valid user and password
 - Completion Criteria: The user is redirected to the landing page and the updated user's categories are reflected on the data retrieved from the newsapi
 
 **- Settings page displays list of checkboxes that the user can interact with**
-- Objective: Checkboxes are properly displayed on the settings page
-- Completion Criteria: The user is redirected to the landing page and the updated user's categories are reflected on the data retrieved from the newsapi
+- Objective: Checkboxes as well as a submit button are properly displayed on the settings page
+- Completion Criteria: The user is redirected from the landing page to the setting page and the setting form and submit button are visible
+
+**- The app contains a settings page that is available after logging in**
+- Objective: After logging in a setttings button appears on the landing page which redirects to the settings page
+- Completion Criteria: Successfully redirecting from the landing page to the setings page which exists and loads properly
 
 **- Non-signed in users sees a list of articles that are from the General news category.**
 - Objective: As long as the user is not signed in and they are on the landing page the news api will only retrieve and display data from the general category
 - Completion Criteria: On load of the landing page the user is not signed in and only general category data is retrieved from the api
+
+**- Signed in users sees a list of articles that are from their categories.**
+- Objective: As long as the user is signed in and they are on the landing page the news api will only retrieve and display data from the categories saved in their account
+- Completion Criteria: On load of the landing page the user is signed in and at least one category in their account is displayed along with news articles
+
+**- Signed in users sees a list of articles that are from the general category.**
+- Objective: As long as the user is signed in and have no categories saved only general information is displayed on the landing page 
+- Completion Criteria: On load of the landing page the user is signed in and have no categories saved so only general information is shown
 
 **- The Settings page contains a form composed of multiple category buttons as well as a button to submit them**
 - Objective: Landing page displays a settings button which will redirect them to the settings page as long as the are already logged in
@@ -172,11 +184,23 @@ for the user and password errora indicating valid user and password
 
 **-  The Landing page contains a refresh button to retrieve newer api data for all possible categories**
 - Objective: Rather than just refreshing the page every time the user can click a button to get new data and display the data on the landing page
-- Completion Criteria: On button click new data for each category is retrieved from the newsapi endpoint and the data is updated on the landing page
+- Completion Criteria: On button click new data for either the default category or each category in the user account is retrieved from the newsapi endpoint and the data is updated on the landing page
 
-## Integration Testing
-- Database updates with news category preferences.
-- Existing user updates their news category preferences.
+**-  Cookie added to Browser to manage login persistance**
+- Objective: After login a session username cookie is added to the browser by the backend to keep the user logged in even if the browser is closed
+- Completion Criteria: After logging in the username cookie is visible in the browser.
+
+**-  Cookie removed from Browser on logout**
+- Objective: After logout cookie removed from browser
+- Completion Criteria: After clicking logout the cookie is removed from the browser and because the cookie manages the login the user logs out of their account 
+
+**-  Session Persistance**
+- Objective: Cookie added to browser correctly manages session so while the cookie exists in browser the user is logged in even when browser is closed
+- Completion Criteria: After logging in check for the cookie in the browser. Then close the browser and reopen if you are still logged in then the session persistence is a success 
+
+**-  Database Update**
+- Objective: After logging out changes made to your user categories persist
+- Completion Criteria: If after adding news categories to your account if they still exist in your account after logout and login test passes 
 
 # Responsibilities
 John: Backend Development and Backend Testing
