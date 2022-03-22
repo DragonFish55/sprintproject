@@ -94,7 +94,7 @@ The software application should function as intended whether a user is signed in
 
 # Backend
 
-### Python Unittest Methodology was used for all API testing ###
+### Python Unittest Package methodology  was used for all API testing ###
 
 **- Signup API 401**
 - Objective: Tests that given a username and password a new user will not be created because the
@@ -128,8 +128,8 @@ for the user and password errora indicating valid user and password
 - Completion Criteria: Data returned is the json data of the queried categories and a response code of 200
 
 **- Update Categories API 401**
-- Objective: Test
-- Completion Criteria:
+- Objective: Tests that if the user is not logged in the api responds with a 401 status code which is the only error code tested besides 200
+- Completion Criteria: Valid user not provided to api so 401 status code is returned
 
 **- Update Categories API 200 Add**
 - Objective: Test that creates new temporary user and adds a category to the user account by calling the api. Then tests whether the category was added successfully
