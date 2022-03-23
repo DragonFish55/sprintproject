@@ -6,7 +6,7 @@ This is Team Z's Sprint 3 test plan. In sprint 3, with the news feed application
 1. Standard Landing Page
 2. Customized Landing Page
 3. Settings Page
-4. 15. Customized News Home Page API
+4. Customized News Home Page API
 5. News Category REST API
 6. Default API
 7. Update Categories API
