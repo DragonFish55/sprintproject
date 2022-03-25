@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import $ from 'jquery'
 import coockiecheck from '../../cookiecheck';
 import NewsReel from '../NewsReel/NewsReel';
+import NewsLinks from '../NewsLinks/NewsLinks';
 
 //returns main page component of the frontend app
 function LandingPage() {
@@ -12,6 +13,7 @@ function LandingPage() {
   const [datasaved, setDataSaved] = useState(null)
   const [username, setUserName] = useState(null)
   const navigate = useNavigate();
+  const [categoryData, setCategory] = useState(null)
 
   useEffect( () => {
     let cookiename = checkCookies()
@@ -135,6 +137,10 @@ function LandingPage() {
       checkApi(null)
     }
   }
+
+  function handleData(value){
+    setCategory(value)
+  }
   
   
   return (
@@ -144,10 +150,12 @@ function LandingPage() {
         </div>
         
         <div className='mainpage'>
-        <p className = "reeltitle">News Reel</p>
-          <div className = "sections">
-            <button className='refresh' onClick={Refresh}>Refresh</button>
+          <p className = "reeltitle">News Reel</p>
+          <div className='newslinkouter'>
+            <NewsLinks categoryData = {handleData} ></NewsLinks>
           </div>
+
+            <button className='refresh' onClick={Refresh}>Refresh</button>
         
 
           

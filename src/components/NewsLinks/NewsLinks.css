@@ -1,0 +1,28 @@
+.newslinks{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background-color: blue;
+    margin: .5rem .5rem;
+}
+
+.newslink{
+    width: 25%;
+    height: 100%;
+    
+}
+
+.newslink button{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: .75rem;
+}
+
+.newslink button:hover{
+    background-color: black;
+    color: white;
+    border: none;
+}
+
