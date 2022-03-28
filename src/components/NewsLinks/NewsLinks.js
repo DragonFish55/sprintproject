@@ -9,13 +9,13 @@ function NewsLinks(props) {
 
 
    const callCategory = (event) => {
-      let namein = event.target.textContent
+      let namein = {"name":event.target.textContent}
       props.categoryData(namein)
    }
 
   return (
     <div className="newslinks">
-      <div className='newslink'><button>Home</button></div>
+      <div className='newslink'><button onClick={callCategory}>Home</button></div>
       <div className='newslink'><button onClick={callCategory}>General</button></div>
       <div className='newslink'><button onClick={callCategory}>Business</button></div>
       <div className='newslink'><button onClick={callCategory}>Entertainment</button></div>

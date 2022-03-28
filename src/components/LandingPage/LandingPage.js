@@ -13,17 +13,21 @@ function LandingPage() {
   const [datasaved, setDataSaved] = useState(null)
   const [username, setUserName] = useState(null)
   const navigate = useNavigate();
-  const [categoryData, setCategory] = useState(null)
+  const [categoryType, setType] = useState(null)
 
   useEffect( () => {
+    cookieLoad()
+  }, []);
+  
+  function cookieLoad(){
     let cookiename = checkCookies()
     if(cookiename !== null){
       checkApi(cookiename)
     } else{
       checkApi(null)
     }
-  }, []);
-  
+  }
+
   function checkCookies(){
     let cookies = document.cookie
     let cookie = null
@@ -138,9 +142,34 @@ function LandingPage() {
     }
   }
 
-  function handleData(value){
-    setCategory(value)
+
+  function getCategory(category){
+      console.log(category)
+      $.ajax({
+        url: "http://127.0.0.1:5000/api/category/" + category,
+        type: 'GET',
+        crossorigin: true,
+        cache:false,
+        success: function(data,xhr){
+          console.log(data)
+          setDataSaved(data.dataout)
+        },
+        error: function(request,error){
+          console.log(error);
+        }
+      })
   }
+
+  function handleData(value){
+    let category = value.name
+    console.log(category)
+    if(category !== "Home"){
+      getCategory(category)
+    } else {
+      cookieLoad()
+    }
+  }
+  
   
   
   return (
@@ -159,7 +188,7 @@ function LandingPage() {
         
 
           
-          <NewsReel id = "newsreel" data = {datasaved}></NewsReel>
+          <NewsReel id = "newsreel" cat_type = {categoryType} data = {datasaved}></NewsReel>
           
         </div>
     </div>
