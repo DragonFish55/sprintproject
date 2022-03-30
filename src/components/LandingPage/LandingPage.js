@@ -166,7 +166,9 @@ function LandingPage() {
     if(category !== "Home"){
       getCategory(category)
     } else {
+      console.log("hi")
       cookieLoad()
+      console.log("here")
     }
   }
   
@@ -188,7 +190,7 @@ function LandingPage() {
         
 
           
-          <NewsReel id = "newsreel" cat_type = {categoryType} data = {datasaved}></NewsReel>
+          <NewsReel id = "newsreel" data = {datasaved}></NewsReel>
           
         </div>
     </div>
