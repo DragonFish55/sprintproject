@@ -42,6 +42,11 @@ function LandingPage() {
     return cookie
   }
 
+
+  function sortCategories(categories){
+    for(let i=0; i < categories.length; i++){}
+  }
+
   function checkLogout(){
     const user = username
     const data = {"username":user}

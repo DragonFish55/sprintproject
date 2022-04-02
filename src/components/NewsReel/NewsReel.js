@@ -25,19 +25,20 @@ function NewsReel(props) {
                 props.data.map((object, index) => {
                 return (
                 <div className = "newsdata" key={index}>
-                    <div className = "datacat" key ={index}>
-                        {
-                            
-                            props.data[index][0].charAt(0).toUpperCase() + 
-                            props.data[index][0].substring(1, props.data[index][0].length)      
-                        }
-                    </div>
+                    
                     <div className="dataentries" key="hey">
                         {
                         props.data &&
                         props.data[index][1].articles.map((object2, index2) => {
                         return (
                             <div className='dataentry' key={index2}>
+                                <div className = "datacat" key ={index}>
+                        {
+                            
+                            props.data[index][0].charAt(0).toUpperCase() + 
+                            props.data[index][0].substring(1, props.data[index][0].length)      
+                        }
+                    </div>
                                 <div className='data_title'>
                                     {props.data[index][1].articles[index2].title}
                                 </div>

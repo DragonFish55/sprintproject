@@ -18,11 +18,10 @@
     height: 100%;
     text-align: center;
     font-size: .75rem;
-}
-
-.newslink button:hover{
-    background-color: black;
-    color: white;
+    background-color: gray;
+    color: black;
     border: none;
 }
+
+
 
