@@ -125,15 +125,14 @@ function Settings(props){
 
                 </div>
                 <div className="sett_choice">
-                    <label htmlFor="bux_box">Business</label>
+                    <label htmlFor="bus_box">Business</label>
                     {
                         props.categories &&
                         <input type="checkbox"
                         className= "checkb"
                         name="business"
                         id = "bus_box"
-                        value = "def"
-                         />
+                        value = "def" />
 
                     }
 
@@ -145,8 +144,7 @@ function Settings(props){
                            className= "checkb"
                            name="entertainment"
                            id = "ent_box"
-                           value = "def"
-                           />
+                           value = "def" />
                 </div>
                 <div className="sett_choice">
                     <label htmlFor="hlth_box">Health</label>
@@ -154,8 +152,7 @@ function Settings(props){
                            className= "checkb"
                            name="health"
                            id = "hlth_box"
-                           value = "def"
-                           />
+                           value = "def" />
                 </div>
                 <div className="sett_choice">
                     <label htmlFor="sci_box">Science</label>
@@ -163,8 +160,7 @@ function Settings(props){
                            className= "checkb"
                            name = "science"
                            id = "sci_box"
-                           value = "def"
-                           />
+                           value = "def" />
                 </div>
                 <div className="sett_choice">
                     <label htmlFor="sprt_box">Sports</label>
@@ -172,8 +168,7 @@ function Settings(props){
                            className= "checkb"
                            name = "sports"
                            id = "sprt_box"
-                           value = "def"
-                           />
+                           value = "def" />
                 </div>
                 <div className="sett_choice">
                     <label htmlFor="tech_box">Technology</label>
@@ -181,8 +176,7 @@ function Settings(props){
                            className= "checkb"
                            name="technology"
                            id = "tech_box"
-                           value = "def"
-                           />
+                           value = "def" />
 
                 </div>
             </div>
