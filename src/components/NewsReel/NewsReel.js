@@ -9,9 +9,9 @@ function NewsReel(props) {
   return (
       <div className = "news_outer">
          <News></News>
-         
+
       </div>
-        
+
   );
 
   function News(){
@@ -20,16 +20,16 @@ function NewsReel(props) {
 
             <div className="news">
                 {
-                
+
                 props.data &&
                 props.data.map((object, index) => {
                 return (
                 <div className = "newsdata" key={index}>
                     <div className = "datacat" key ={index}>
                         {
-                            
-                            props.data[index][0].charAt(0).toUpperCase() + 
-                            props.data[index][0].substring(1, props.data[index][0].length)      
+
+                            props.data[index][0].charAt(0).toUpperCase() +
+                            props.data[index][0].substring(1, props.data[index][0].length)
                         }
                     </div>
                     <div className="dataentries" key="hey">
@@ -41,29 +41,33 @@ function NewsReel(props) {
                                 <div className='data_title'>
                                     {props.data[index][1].articles[index2].title}
                                 </div>
-                                <div className="data_source">
-                                    <p>Read more at <span><a href = {props.data[index][1].articles[index2].url}>{props.data[index][1].articles[index2].source.name}</a></span></p>
-                                </div>
-                                <div className="data_image">
-                                        <img 
-                                            src={props.data[index][1].articles[index2].urlToImage}
-                                            alt="pic1"
-                                            width="100px"
-                                            height="100px" />
-                                </div>
-                                 <div className='data_desc'> 
-                                    {props.data[index][1].articles[index2].description}
-                                </div>
-                                <div className='data_published'> 
-                                    {props.data[index][1].articles[index2].publishedAt}
-                                </div>
+
                                 {
-                                    props.data[index][1].articles[index2].author && 
-                                    <div className='data_author'> 
-                                        <p>Author: {props.data[index][1].articles[index2].author}</p> 
+                                    props.data[index][1].articles[index2].author &&
+                                    <div className='data_author'>
+                                        {props.data[index][1].articles[index2].author}
                                     </div>
                                 }
-                            </div>
+                                <div className='data_published'>
+                                    {props.data[index][1].articles[index2].publishedAt}
+                                </div>
+
+                                 <div className='data_desc'>
+                                    {props.data[index][1].articles[index2].description}
+                                </div>
+
+                                <div className="data_image">
+                                        <img
+                                            src={props.data[index][1].articles[index2].urlToImage}
+                                            alt="pic1"
+                                            class="center"/>
+                                </div>
+                                <div className="data_source">
+                                    <p class="center">Read more at<a href = {props.data[index][1].articles[index2].url}>{props.data[index][1].articles[index2].source.name}</a></p>
+                                </div>
+                              </div>
+
+
                             )})
                         }
                     </div>
