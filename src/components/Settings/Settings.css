@@ -11,9 +11,9 @@
 
 .sett_choice{
     display: flex;
-    width: 80%;
-    height: 100px;
-    background-color: green;
+    width: 40%;
+    height: 25px;
+    background-color: #b4fbf8;
     border: 1px solid black;
     align-items: center;
 }
@@ -26,12 +26,31 @@
 .sett_choice label{
     width: 75%;
     height: 100%;
-    
+
     vertical-align: middle;
     font-size: 1.5rem;
 }
 
 .sett_choice input[type="checkbox"]{
-    width: 50px;
-    height: 100px;
+    width: 25px;
+    height: 50px;
+}
+
+.sett_title{
+  text-align: center;
+  color: #02908b;
+  font-family: Arial;
+  font-size: 20px;
+}
+
+.checkq{
+  background-color: #02908b;
+  color: white;
+  padding: 10px 20px;
+  font-family: Arial;
+  text-align: center;
+  display: inline-block;
+  font-size: 10px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
