@@ -9,7 +9,7 @@ import NewsLinks from '../NewsLinks/NewsLinks';
 
 //returns main page component of the frontend app
 function LandingPage() {
-  
+
   const [datasaved, setDataSaved] = useState(null)
   const [username, setUserName] = useState(null)
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ function LandingPage() {
   useEffect( () => {
     cookieLoad()
   }, []);
-  
+
   function cookieLoad(){
     let cookiename = checkCookies()
     if(cookiename !== null){
@@ -63,9 +63,9 @@ function LandingPage() {
           checkApi(null)
           checkCookies();
           navigate('/');
-          
+
         }
-        
+
       },
       error: function(request,error){
         console.log(error);
@@ -88,7 +88,7 @@ function LandingPage() {
           } else{
             checkApi(null)
           }
-            
+
         },
         error: function(request,error){
           console.log(error);
@@ -109,7 +109,7 @@ function LandingPage() {
         }
       })
     }
-    
+
   }
 
   /*
@@ -171,31 +171,30 @@ function LandingPage() {
       console.log("here")
     }
   }
-  
-  
-  
+
+
+
   return (
     <div className="landing">
         <div className = "header_outer">
           <HeaderComp home = {false} settings = {true} username = {username} checkLogout = {checkLogout}></HeaderComp>
         </div>
-        
+
         <div className='mainpage'>
-          <p className = "reeltitle">News Reel</p>
+          <p className = "reeltitle">Welcome to the News Reel!</p>
           <div className='newslinkouter'>
             <NewsLinks categoryData = {handleData} ></NewsLinks>
-          </div>
+            </div>
+            <button className='refresh' onClick={Refresh}>Refresh For New Articles</button>
 
-            <button className='refresh' onClick={Refresh}>Refresh</button>
-        
 
-          
+
           <NewsReel id = "newsreel" data = {datasaved}></NewsReel>
-          
+
         </div>
     </div>
   )
-  
+
 
 }
 
