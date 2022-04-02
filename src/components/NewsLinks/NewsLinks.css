@@ -10,7 +10,7 @@
 .newslink{
     width: 25%;
     height: 100%;
-    
+
 }
 
 .newslink button{
@@ -24,4 +24,12 @@
 }
 
 
+.newslink button:hover{
+    background-color: #02908b;
+    color: white;
+    border: none;
+}
 
+.newslink button:active{
+    background-color: #02908b;
+}

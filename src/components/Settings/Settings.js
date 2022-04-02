@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 
 //returns main page component of the frontend app
 function Settings(props){
-   
+
     const checkb = document.getElementsByClassName("checkb")
     const navigate = useNavigate()
     const [category, setCategory] = useState(props.categories)
@@ -41,7 +41,7 @@ function Settings(props){
         }
     }
 
-    //Based on which checkboxes are checked the users categories 
+    //Based on which checkboxes are checked the users categories
     //are updated
     function updateSettings(){
         let checklist = []
@@ -60,15 +60,15 @@ function Settings(props){
         data_len = Object.keys(data).length
         let keys = Object.keys(data)
         let values = Object.values(data)
-    
+
         for(let i = 0; i < data_len; i++){
             if(i !== data_len-1){
                 querystr = querystr + keys[i] + "=" + values[i] + "&";
             }else{
                 querystr = querystr + keys[i] + "=" + values[i];
-            } 
+            }
         }
-        
+
         $.ajax({
             //url: 'https://gentle-island-18820.herokuapp.com/api/signin',
             url: "http://127.0.0.1:5000/api/new/" + user + "/categories?" + querystr,
@@ -89,9 +89,9 @@ function Settings(props){
         })
     };
 
-   
 
-    
+
+
 
       function parseCheck(){
         let checklist1 = []
@@ -109,84 +109,84 @@ function Settings(props){
 
     return (
         <div className="settings">
-            <div className="sett_title"><p>Settings:</p></div>
+            <div className="sett_title">Settings:</div>
             <div className="sett_choices">
                 <div className="sett_choice">
                     <label htmlFor="gen_box">General</label>
                     {
-                        props.categories && 
-                        <input type="checkbox" 
-                               className= "checkb" 
-                               name = "general" 
-                               id = "gen_box" 
-                               value = "def" 
+                        props.categories &&
+                        <input type="checkbox"
+                               className= "checkb"
+                               name = "general"
+                               id = "gen_box"
+                               value = "def"
                                />
                     }
-                    
+
                 </div>
                 <div className="sett_choice">
                     <label htmlFor="bux_box">Business</label>
                     {
                         props.categories &&
                         <input type="checkbox"
-                        className= "checkb" 
-                        name="business" 
-                        id = "bus_box" 
-                        value = "def" 
+                        className= "checkb"
+                        name="business"
+                        id = "bus_box"
+                        value = "def"
                          />
 
                     }
-                    
-                    
+
+
                 </div>
                 <div className="sett_choice">
                     <label htmlFor="ent_box">Entertainment</label>
-                    <input type="checkbox" 
-                           className= "checkb" 
-                           name="entertainment" 
-                           id = "ent_box" 
+                    <input type="checkbox"
+                           className= "checkb"
+                           name="entertainment"
+                           id = "ent_box"
                            value = "def"
                            />
                 </div>
                 <div className="sett_choice">
                     <label htmlFor="hlth_box">Health</label>
-                    <input type="checkbox" 
-                           className= "checkb" 
-                           name="health" 
-                           id = "hlth_box" 
+                    <input type="checkbox"
+                           className= "checkb"
+                           name="health"
+                           id = "hlth_box"
                            value = "def"
                            />
                 </div>
                 <div className="sett_choice">
                     <label htmlFor="sci_box">Science</label>
-                    <input type="checkbox" 
-                           className= "checkb" 
-                           name = "science" 
-                           id = "sci_box" 
+                    <input type="checkbox"
+                           className= "checkb"
+                           name = "science"
+                           id = "sci_box"
                            value = "def"
                            />
                 </div>
                 <div className="sett_choice">
                     <label htmlFor="sprt_box">Sports</label>
-                    <input type="checkbox" 
+                    <input type="checkbox"
                            className= "checkb"
-                           name = "sports" 
-                           id = "sprt_box" 
+                           name = "sports"
+                           id = "sprt_box"
                            value = "def"
                            />
                 </div>
                 <div className="sett_choice">
                     <label htmlFor="tech_box">Technology</label>
-                    <input type="checkbox" 
-                           className= "checkb" 
-                           name="technology" 
-                           id = "tech_box" 
+                    <input type="checkbox"
+                           className= "checkb"
+                           name="technology"
+                           id = "tech_box"
                            value = "def"
                            />
-                
+
                 </div>
             </div>
-            
+
             <button onClick={updateSettings} id = "checkq">Submit</button>
         </div>
     )
