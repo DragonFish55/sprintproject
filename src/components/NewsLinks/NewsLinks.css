@@ -10,7 +10,7 @@
 .newslink{
     width: 25%;
     height: 100%;
-    
+
 }
 
 .newslink button{
@@ -18,11 +18,15 @@
     height: 100%;
     text-align: center;
     font-size: .75rem;
+    font-family: Helvetica;
 }
 
 .newslink button:hover{
-    background-color: black;
+    background-color: #02908b;
     color: white;
     border: none;
 }
 
+.newslink button:active{
+    background-color: #02908b;
+}
