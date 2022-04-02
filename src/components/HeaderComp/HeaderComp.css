@@ -4,16 +4,16 @@
     width: 100%;
     height: 100%;
     padding: 0 .5rem;
-    background-color: gray;
+    background-color:	#006076;
     display: flex;
     align-items: center;
-    color:white;   
+    color:white;
 }
 
 .innerheader{
     display: flex;
     width: 100%;
-    
+
 }
 
 .title{
@@ -36,7 +36,7 @@
 }
 
 .sign_main .sgnbtn:hover{
-    background-color: black;
+    background-color: #003f63;
     color:white;
 }
 
@@ -53,9 +53,13 @@
     outline: none;
     border:none;
     padding: 0 5px;
+    font-family: Arial;
+    text-align: center;
+    display: inline-block;
+    font-size: 15px;
 }
 
 .signout:hover{
     color:white;
-    background-color: black;
+    background-color: #003f63;
 }
