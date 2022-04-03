@@ -140,6 +140,7 @@ function parseCategories(){
           <HeaderComp home = {true} settings = {null} username = {username} checkLogout = {checkLogout}></HeaderComp>
         </div>
         <Settings categories={category_state}></Settings>
+        
     </div>
   )
   

@@ -43,8 +43,54 @@ function LandingPage() {
   }
 
 
-  function sortCategories(categories){
-    for(let i=0; i < categories.length; i++){}
+  function extractCategories(categories, type){
+    let category1 = []
+    let category2 = []
+    let currCategory = ""
+    let tempCategory1 = null
+    let tempCategory2 = null
+    let tempVal1 = null
+    let tempVal2 = null
+    let title, author,publish, desc, source, image, url = ""
+    for(let i=0; i < categories.length; i++){
+        currCategory = categories[i][0]
+        console.log(currCategory)
+        for(let k = 0; k < categories[i][1].articles.length; k++){
+          title = categories[i][1].articles[k].title 
+          author = categories[i][1].articles[k].author
+          publish = categories[i][1].articles[k].publishedAt
+          publish = publish.replace("T", " ")
+          publish = publish.replace("Z","")
+          desc = categories[i][1].articles[k].description
+          image = categories[i][1].articles[k].urlToImage
+          url = categories[i][1].articles[k].url
+          source = categories[i][1].articles[k].source.name
+          category1.push([currCategory, {"title":title, "author":author, "publish":publish, "desc":desc, "image":image, "url":url, "source":source}])
+        }
+    }
+    category2 = category1.slice()
+
+    if(type === "settings"){
+      for(let l=0; l < category2.length;l++){
+        for(let k = l+1; k < category2.length; k++){
+          if(category2[l][1].publish < category2[k][1].publish){
+            
+            tempCategory1 = category2[l]
+            tempCategory2 = category2[k]
+            
+            category2.splice(l,1, tempCategory2)
+            category2.splice(k,1, tempCategory1)
+
+            tempCategory1 = null
+            tempCategory2 = null
+          }
+        }
+
+      }
+      
+    }
+    
+    return category2
   }
 
   function checkLogout(){
@@ -79,6 +125,7 @@ function LandingPage() {
   };
 
   function checkApi(cookiename){
+    let extract_data = null
     if(cookiename !== null && cookiename !== ""){
       $.ajax({
         url: "http://127.0.0.1:5000/api/" + cookiename + "/getApiData",
@@ -88,8 +135,8 @@ function LandingPage() {
         cache:false,
         success: function(data,xhr){
           if(data.dataout !== "None"){
-            console.log(data.dataout)
-            setDataSaved(data.dataout)
+            extract_data = extractCategories(data.dataout, "settings")
+            setDataSaved(extract_data)
           } else{
             checkApi(null)
           }
@@ -107,6 +154,7 @@ function LandingPage() {
         crossorigin: true,
         cache:false,
         success: function(data,xhr){
+          extract_data = extractCategories(data.dataout)
           setDataSaved(data.dataout)
         },
         error: function(request,error){
@@ -149,6 +197,7 @@ function LandingPage() {
 
 
   function getCategory(category){
+    let extract_data = null
       console.log(category)
       $.ajax({
         url: "http://127.0.0.1:5000/api/category/" + category,
@@ -157,7 +206,8 @@ function LandingPage() {
         cache:false,
         success: function(data,xhr){
           console.log(data)
-          setDataSaved(data.dataout)
+          extract_data = extractCategories(data.dataout)
+          setDataSaved(extract_data)
         },
         error: function(request,error){
           console.log(error);
