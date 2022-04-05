@@ -64,23 +64,23 @@ The software application should function as intended whether a user is signed in
 
 # Integration Testing Tasks
 
-**1. Navigation Bar Home Button and Settings**
+**1. Sign Into Account**
 - Objective: home button is highlighted and shows articles from categories from preferred settings
 - Completion Criteria:
 
-**2. Pagination and Landing Page GET request**
+**2. Add Categories**
 - Objective: pagination functions and obtains new articles
 - Completion Criteria:
 
-**3. General Articles Button and Landing Page GET request**
+**3. Remove Categories**
 - Objective: general articles are generated upon loading landing page without being signed in, general button is highlighted (?)
 - Completion Criteria:
 
-**4. Navigation Bar and Category Endpoint**
+**4. Sign In Error**
 - Objective: articles for certain categories are obtained when selected, and button is highlighted
 - Completion Criteria:
 
-**5. Pagination and API Endpoint Maxes Out Around 250 Articles**
+**5. Pagination**
 - Objective: pagination functions until 250 articles are hit
 - Completion Criteria:
 
