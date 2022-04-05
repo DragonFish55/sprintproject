@@ -64,7 +64,7 @@ The software application should function as intended whether a user is signed in
 
 # Integration Testing Tasks
 
-**1. Navigation Bar Home Button and Settings **
+**1. Navigation Bar Home Button and Settings**
 - Objective: home button is highlighted and shows articles from categories from preferred settings
 - Completion Criteria:
 
@@ -76,7 +76,7 @@ The software application should function as intended whether a user is signed in
 - Objective: general articles are generated upon loading landing page without being signed in, general button is highlighted (?)
 - Completion Criteria:
 
-**4. Navigation Bar and Category Endpoint **
+**4. Navigation Bar and Category Endpoint**
 - Objective: articles for certain categories are obtained when selected, and button is highlighted
 - Completion Criteria:
 
