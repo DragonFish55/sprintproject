@@ -62,32 +62,26 @@ The team will use manual tests, unit tests, test driven development tests, , and
 # Pass/Fail Criteria
 The software application should function as intended whether a user is signed in or not to the application. A non-signed in user should be able to view the landing page with general news articles. A signed in user will be able to navigate the landing page, and according to their news preferences from the settings page (should they have selected any) view related articles. When the settings page form is utilized, the local postgres database should update with that user's selections and the landing page should reflect that. There should not be any critical bugs affecting these functions. The user session is also persistent as well as the data and a session cookie is added to the user's browser on login. In addition the server should be able to respond to various types of status codes.
 
-# Testing Tasks
+# Integration Testing Tasks
 
-## Frontend
-**- **
-- Objective:
+**1. Navigation Bar Home Button and Settings **
+- Objective: home button is highlighted and shows articles from categories from preferred settings
 - Completion Criteria:
 
-# Backend
-
-### Python Unittest Package methodology  was used for all API testing ###
-
-**- **
-- Objective:
+**2. Pagination and Landing Page GET request**
+- Objective: pagination functions and obtains new articles
 - Completion Criteria:
 
-
-## User Acceptance Testing (Manual Testing)
-
-**- **
-- Objective:
+**3. General Articles Button and Landing Page GET request**
+- Objective: general articles are generated upon loading landing page without being signed in, general button is highlighted (?)
 - Completion Criteria:
 
+**4. Navigation Bar and Category Endpoint **
+- Objective: articles for certain categories are obtained when selected, and button is highlighted
+- Completion Criteria:
 
-## Integration Testing
-**- **
-- Objective:
+**5. Pagination and API Endpoint Maxes Out Around 250 Articles**
+- Objective: pagination functions until 250 articles are hit
 - Completion Criteria:
 
 # Responsibilities
@@ -95,7 +89,7 @@ John: Backend Development and Backend Testing
 
 Harshal: Front End Development
 
-Megan: Test Planning and Frontend Testing
+Megan: Test Planning, Frontend Testing, Frontend Re-Designing
 
 # Schedule
 | Date | Task to Complete|
