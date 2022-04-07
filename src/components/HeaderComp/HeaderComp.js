@@ -34,7 +34,7 @@ function HeaderComp(props) {
             {
              (props.username === null || props.username === "") &&
               <Link to = '/signin'>
-                <button className = "sgnbtn" id = "signin">Signin</button>
+                <button name = "signin" className = "sgnbtn" id = "signin">Signin</button>
               </Link>
             }
             {

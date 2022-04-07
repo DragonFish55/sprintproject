@@ -21,7 +21,7 @@ function SigninPage() {
     <div className="signin">
       <section className="left-section">
         <div id="left-form" className="form">
-          <h1>Login</h1>
+          <h1>Login Page</h1>
           <div className = "innerform">
             <div className='userin_div'>
               <input
@@ -127,10 +127,13 @@ function SigninPage() {
       success: function(data,xhr){
         setPassError("");
         setUserError("");
+        console.log("here")
         navigate('/', {state:{name:userinput}});
       },
       error: function(data,request,error){
+        
         if(data.responseJSON.user_error === "true"){
+          
           setUserError("Incorrect Username");
         }
         

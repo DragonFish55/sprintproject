@@ -25,7 +25,7 @@ function SignupPage() {
     <div className="signup">
         <section className="right-section">
           <div id="right-form" className="form">
-            <h1>Signup</h1>
+            <h1>Signup Page</h1>
             <div className = "innerform">
               <div className = "userin">
                 <input
