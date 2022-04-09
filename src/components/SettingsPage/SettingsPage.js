@@ -6,12 +6,17 @@ import { useNavigate } from 'react-router-dom';
 import $ from 'jquery';
 import coockiecheck from '../../cookiecheck';
 import Settings from '../Settings/Settings';
+import {connect} from 'react-redux';
+
+import {
+  setUserNameVal,
+} from "../../redux/User/username.actions"
 
 //returns main page component of the frontend app
 function SettingsPage(props) {
   
   const checkRef = useRef(null)
-  const [username, setUserName] = useState(null)
+  const username = props.username.username
   const navigate = useNavigate();
   let cookiename = null
 
@@ -37,10 +42,14 @@ function SettingsPage(props) {
     let check = coockiecheck(cookies, "username")
     if(check !== ""){
       cookie = check
-      setUserName(check)
     } else{
-      cookie = null
-      setUserName(null)
+      console.log(props.username.username)
+      if(username !== null) {
+        console.log(props.username.username)
+        cookie = username
+      } else {
+        cookie = null
+      }
     }
     return cookie
   }
@@ -89,7 +98,7 @@ function getCategoryAccount(cookie){
       crossorigin: true,
       cache:false,
       success: function(data,xhr){
-        if(data != "None"){
+        if(data.dataout != "None"){
           categories = data.dataout
           console.log(categories)
           let cat_update = parseCategories()
@@ -139,7 +148,7 @@ function parseCategories(){
         <div className = "header_outer">
           <HeaderComp home = {true} settings = {null} username = {username} checkLogout = {checkLogout}></HeaderComp>
         </div>
-        <Settings categories={category_state}></Settings>
+        <Settings username={username}  categories={category_state}></Settings>
         
     </div>
   )
@@ -147,4 +156,20 @@ function parseCategories(){
 
 }
 
-export default SettingsPage;
+const mapStateToProps = state => {
+  return {
+    username: state.username,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setUserNameVal: (value) => dispatch({
+      type:"SETUSERVAL",
+      value:value
+    }),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SettingsPage);
+

@@ -1,0 +1,1 @@
+export const setUserNameVal = (value) => ({type: "SETUSERVAL", value})

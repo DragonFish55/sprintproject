@@ -50,7 +50,11 @@ function Settings(props){
         let check = coockiecheck(cookies, "username")
         let user = ""
         if(check !== ""){
-        user = check
+            user = check
+        } else {
+            if(props.username !== undefined && props.username !== null) {
+                user = props.username
+            }
         }
         let data_len = 0
         checklist = parseCheck()

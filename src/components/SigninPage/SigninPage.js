@@ -2,6 +2,11 @@ import './SigninPage.css';
 import {useNavigate} from 'react-router-dom';
 import $ from 'jquery';
 import React, {useState} from 'react';
+import {connect} from 'react-redux';
+
+import {
+  setUserNameVal,
+} from "../../redux/User/username.actions"
 
 /**
  * 
@@ -11,7 +16,7 @@ import React, {useState} from 'react';
  *          and validate whether they can login
  * 
  */
-function SigninPage() {
+function SigninPage(props) {
 
   const [passerror,setPassError] = useState("")
   const [usererror,setUserError] = useState("")
@@ -128,7 +133,9 @@ function SigninPage() {
         setPassError("");
         setUserError("");
         console.log("here")
-        navigate('/', {state:{name:userinput}});
+        props.setUserNameVal(userinput)
+        console.log(props.username)
+        navigate('/');
       },
       error: function(data,request,error){
         
@@ -145,4 +152,20 @@ function SigninPage() {
   };
 }
 
-export default SigninPage;
+const mapStateToProps = state => {
+  return {
+    username: state.username,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setUserNameVal: (value) => dispatch({
+      type:"SETUSERVAL",
+      value:value
+    }),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SigninPage);
+

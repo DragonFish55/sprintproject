@@ -3,9 +3,18 @@ import {Link} from 'react-router-dom'
 import { React} from 'react';
 import $ from 'jquery';
 
+import {connect} from 'react-redux';
+
+import {
+  setUserNameVal,
+} from "../../redux/User/username.actions"
+
 //returns the header component to be put in main page
 function HeaderComp(props) {
 
+
+  let username = props.username.username
+  console.log(username) 
   return (
 
     <div className="header">
@@ -21,24 +30,25 @@ function HeaderComp(props) {
               </Link>
             }
             {
-              props.username && props.username !== "" &&
-              <p className="usertag" >Hello, <span id = "user">{props.username}</span>!</p>
+              
+             username !== null  && username !== undefined &&
+              <p className="usertag" >Hello, <span id = "user">{username}</span>!</p>
             }
             {
-              props.settings && props.username && props.username !== "" &&
+              props.settings != null && username != null && username != undefined &&
               <Link to = '/settings'>
                 <button className = "settbtn" id = "settings">Settings</button>
               </Link>
             }
 
             {
-             (props.username === null || props.username === "") &&
+             (username === undefined || username === null || username === "") &&
               <Link to = '/signin'>
                 <button name = "signin" className = "sgnbtn" id = "signin">Signin</button>
               </Link>
             }
             {
-             props.username && props.username !== ""  &&
+             username !== undefined && username !== null && username !== ""  &&
              <button onClick={props.checkLogout} className = "signout" id = "signout">Logout</button>}
 
           </div>
@@ -50,4 +60,20 @@ function HeaderComp(props) {
 
 }
 
-export default HeaderComp;
+
+const mapStateToProps = state => {
+  return {
+    username: state.username,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setUserNameVal: (value) => dispatch({
+      type:"SETUSERVAL",
+      value:value
+    }),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderComp);

@@ -6,12 +6,17 @@ import $ from 'jquery'
 import coockiecheck from '../../cookiecheck';
 import NewsReel from '../NewsReel/NewsReel';
 import NewsLinks from '../NewsLinks/NewsLinks';
+import {connect} from 'react-redux';
+
+import {
+  setUserNameVal,
+} from "../../redux/User/username.actions"
 
 //returns main page component of the frontend app
-function LandingPage() {
+function LandingPage(props) {
 
+  let username = props.username.username
   const [datasaved, setDataSaved] = useState(null)
-  const [username, setUserName] = useState(null)
   const navigate = useNavigate();
   const [categoryType, setType] = useState(null)
   const [pagenum, setPageNum] = useState(null)
@@ -26,14 +31,21 @@ function LandingPage() {
     cookieLoad()
   }, []);
 
+  
+
   function cookieLoad(){
     let cookiename = checkCookies()
     if(cookiename !== null){
       checkApi(cookiename)
     } else{
-      checkApi(null)
+      if(username != null && username != undefined){
+        checkApi(username)
+      } else{
+        checkApi(null)
+      }
     }
   }
+
 
   function checkCookies(){
     let cookies = document.cookie
@@ -41,10 +53,8 @@ function LandingPage() {
     let check = coockiecheck(cookies, "username")
     if(check !== ""){
       cookie = check
-      setUserName(check)
     } else{
       cookie = null
-      setUserName(null)
     }
     return cookie
   }
@@ -377,4 +387,19 @@ function LandingPage() {
 
 }
 
-export default LandingPage;
+const mapStateToProps = state => {
+  return {
+    username: state.username,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setUserNameVal: (value) => dispatch({
+      type:"SETUSERVAL",
+      value:value
+    }),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);

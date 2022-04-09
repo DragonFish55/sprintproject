@@ -40,6 +40,9 @@
   },
   "devDependencies": {
     "js-cookie": "^3.0.1",
-    "msw": "^0.39.2"
+    "msw": "^0.39.2",
+    "react-redux": "^7.2.8",
+    "redux": "^4.1.2",
+    "redux-persist": "^6.0.0"
   }
 }
