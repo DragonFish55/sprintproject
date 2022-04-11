@@ -1,6 +1,6 @@
 
 # Test Case ID:
-sign_in
+user_cat
 
 # Description
 Test that upon user signing in that the landing page displays the home button on the navigation bar highlighted. The news reel also displays articles from categories selected in the settings preferences.
@@ -8,7 +8,7 @@ Test that upon user signing in that the landing page displays the home button on
 # Test Steps
 1. Launch app and navigate to http://127.0.0.1:3000.
 2. Go to the sign in page and input login credentials.
-3. After being redirected back to the landing page, check to see if Home button is higlighted and 
+3. After being redirected back to the landing page, check to see if Home button is higlighted and articles matching those selected in the user settings are displayed.
 
 # Pre-requisites
 - User credentials
