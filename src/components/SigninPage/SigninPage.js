@@ -132,9 +132,7 @@ function SigninPage(props) {
       success: function(data,xhr){
         setPassError("");
         setUserError("");
-        console.log("here")
         props.setUserNameVal(userinput)
-        console.log(props.username)
         navigate('/');
       },
       error: function(data,request,error){

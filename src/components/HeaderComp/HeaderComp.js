@@ -14,7 +14,7 @@ function HeaderComp(props) {
 
 
   let username = props.username.username
-  console.log(username) 
+  
   return (
 
     <div className="header">

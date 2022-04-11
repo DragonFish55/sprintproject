@@ -24,7 +24,6 @@ function NewsLinks(props) {
       for (i = 0; i < categories.length; i++){
         cat_child = categories[i]
         cat_child = cat_child.children[0]
-        console.log(cat_child)
         cat_child.style.backgroundColor = "gray"
         cat_child.style.color = "black"
       }

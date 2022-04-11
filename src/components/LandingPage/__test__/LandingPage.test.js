@@ -3,10 +3,9 @@ import {screen,render,cleanup,fireEvent, waitFor,configure} from "@testing-libra
 import '@testing-library/jest-dom'
 import App from '../../../App'
 import { act } from 'react-dom/test-utils';
-import Cookies from 'js-cookie'
-
-import {userEvent} from "@testing-library/user-event"
-
+import { Provider } from "react-redux";
+import store, {persistedStore} from '../../../redux/store'
+import {PersistGate} from 'redux-persist/integration/react'
 import {MemoryRouter} from 'react-router-dom'
 
 //import {setupServer} from "msw/node"
@@ -14,45 +13,62 @@ import {MemoryRouter} from 'react-router-dom'
 
 afterEach(cleanup);
 
-
-test("user creates an account", async () => {
+test("User can access single category news", async () => {
+    let cat_btn = null
     act(() => {
-        render(<App />, {wrapper:MemoryRouter})
+        render(
+        <Provider store={store}>
+            <PersistGate Loading={null} persistor={persistedStore}>
+                <App />
+            </PersistGate>
+        </Provider>
+        ,{wrapper:MemoryRouter})
     })
     
     expect(screen.getByText(/Welcome to the News Reel!/i)).toBeInTheDocument()
-    const signin_btn = await screen.getByRole('button', {name: "Signin"})
-    act(() => {
-        fireEvent.click(signin_btn)
-    })
-    
-    expect(screen.getByText(/Login Page/i)).toBeInTheDocument()
-
-    //const signup_btn = await screen.getByRole('button', {name: "Signup?"})
-    //fireEvent.click(signup_btn)
-    const user_in = await screen.getByPlaceholderText("User Name")
-    const pass_in = await screen.getByPlaceholderText("Password")
-    act(() => {
-        fireEvent.change(user_in, {target: {value: "Spongebob23"}})
-    })
-    act(() => {
-        fireEvent.change(pass_in, {target: {value: "DinoStein45"}})
-    })
-    expect(user_in.value).toBe('Spongebob23')
-    expect(pass_in.value).toBe('DinoStein45')
-    const login_btn = await screen.getByRole('button', {name: "Login"})
-    act(() => {
-        fireEvent.click(login_btn)
-    })
-    
     await waitFor(() => {
-        expect(screen.getByText(/Welcome Spongebob23!/i)).toBeInTheDocument()
+        cat_btn = screen.getByRole('button', {name: "Entertainment"})
     })
+    act(() => {
+        fireEvent.click(cat_btn)
+    })
+
+    await waitFor(() => {
+        expect(screen.getByText(/Next Page/i)).toBeInTheDocument()
+    })
+   
     
+
     
-    //expect(screen.getByText(/Welcome Spongebob23/i)).toBeInTheDocument()
-    //expect(screen.getByText(/Welcome to the News Reel!/i)).toBeInTheDocument()
-    //const signup_btn = await screen.getByRole('button', {name: "Signup?"})
-    //fireEvent.click(signup_btn)
-    //expect(screen.getByText(/Signup Page/i)).toBeInTheDocument()
 })
+
+test("User can access general or multiple category news", async () => {
+        let cat_btn = null
+        act(() => {
+            render(
+            <Provider store={store}>
+                <PersistGate Loading={null} persistor={persistedStore}>
+                    <App />
+                </PersistGate>
+            </Provider>
+            ,{wrapper:MemoryRouter})
+        })
+        
+        expect(screen.getByText(/Welcome to the News Reel!/i)).toBeInTheDocument()
+        await waitFor(() => {
+            cat_btn = screen.getByRole('button', {name: "Next Page"})
+        })
+        
+        act(() => {
+            fireEvent.click(cat_btn)
+        })
+
+        await waitFor(() => {
+            expect(screen.getByText(/Next Page/i)).toBeInTheDocument()
+            expect(screen.getByText(/Prev Page/i)).toBeInTheDocument() 
+        })
+            
+})
+
+
+

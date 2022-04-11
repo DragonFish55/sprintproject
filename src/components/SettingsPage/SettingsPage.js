@@ -32,7 +32,6 @@ function SettingsPage(props) {
   useEffect( () => {
     cookiename = checkCookies()
     getCategoryAccount(cookiename)
-    console.log(category_obj)
       
   }, []);
 
@@ -43,9 +42,7 @@ function SettingsPage(props) {
     if(check !== ""){
       cookie = check
     } else{
-      console.log(props.username.username)
       if(username !== null) {
-        console.log(props.username.username)
         cookie = username
       } else {
         cookie = null
@@ -74,8 +71,9 @@ function SettingsPage(props) {
       data:JSON.stringify(data),
       success: function(data,xhr){
         if(data.user_error === "true"){
-          console.log("success")
+          
           checkCookies();
+          props.setUserNameVal(null)
           navigate('/'); 
         }      
       },
@@ -89,7 +87,6 @@ function SettingsPage(props) {
   
 
 function getCategoryAccount(cookie){
-  console.log(cookie)
   if(cookie !== null && cookie !== ""){
       $.ajax({
       url: "http://127.0.0.1:5000/api/" + cookie + "/getCategoryList",
@@ -100,7 +97,6 @@ function getCategoryAccount(cookie){
       success: function(data,xhr){
         if(data.dataout != "None"){
           categories = data.dataout
-          console.log(categories)
           let cat_update = parseCategories()
           setCategory(cat_update)
         } 

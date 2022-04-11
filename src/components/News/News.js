@@ -4,7 +4,7 @@ import {React} from 'react';
 import $ from 'jquery';
 
 function News(props){
-    console.log(props.data)
+    
     return (
 
             <div className="news">
@@ -21,7 +21,6 @@ function News(props){
                             <div className='dataentry'>
                                 <div className = "datacat">
                         {
-                            
                             props.data[index][0].charAt(0).toUpperCase() + 
                             props.data[index][0].substring(1, props.data[index][0].length)      
                         }

@@ -1,11 +1,11 @@
-import { SETUSERVAL } from "./username.types";
+import { SETUSERVAL, SETNULL } from "./username.types";
 
 const INITIAL_STATE = {
     username:null,
 }
 
 const usernameReducer = (state = INITIAL_STATE, action) => {
-    console.log(action.value)
+    
     switch (action.type) {
         case SETUSERVAL:
             return {

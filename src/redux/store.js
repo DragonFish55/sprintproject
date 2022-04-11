@@ -5,7 +5,7 @@ import {persistStore, persistReducer} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
 const persistedConfig={
-    key:"main-root",
+    key:"root",
     storage,
 }
 

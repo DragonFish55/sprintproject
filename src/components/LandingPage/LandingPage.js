@@ -9,6 +9,7 @@ import NewsLinks from '../NewsLinks/NewsLinks';
 import {connect} from 'react-redux';
 
 import {
+  setUserNameNull,
   setUserNameVal,
 } from "../../redux/User/username.actions"
 
@@ -27,11 +28,10 @@ function LandingPage(props) {
   const [pageVis, setPageVis] = useState(null)
 
   useEffect( () => {
+    
     setBackVis(0)
     cookieLoad()
   }, []);
-
-  
 
   function cookieLoad(){
     let cookiename = checkCookies()
@@ -88,7 +88,6 @@ function LandingPage(props) {
       setPageVis(x)
       setCurrPage(0)
 
-      console.log(temp_data)
       for(let i = 0; i < data_in.length; i++){
         temp_data.push(data_in[i])
         if(((i+1)%pagesize) == 0){
@@ -96,7 +95,7 @@ function LandingPage(props) {
           temp_data = []
         }
       }
-      console.log(data_mod)
+      
       return data_mod
 
   }
@@ -109,11 +108,11 @@ function LandingPage(props) {
     let tempCategory2 = null
     let tempVal1 = null
     let tempVal2 = null
-    console.log(categories)
+    
     let title, author,publish, desc, source, image, url = ""
     for(let i=0; i < categories.length; i++){
         currCategory = categories[i][0]
-        console.log(currCategory)
+        
         for(let k = 0; k < categories[i][1].articles.length; k++){
           title = categories[i][1].articles[k].title 
           author = categories[i][1].articles[k].author
@@ -169,11 +168,14 @@ function LandingPage(props) {
       },
       data:JSON.stringify(data),
       success: function(data,xhr){
+        
         if(data.user_error === "true"){
+          
           checkApi(null)
+          props.setUserNameVal(null)
           checkCookies();
           navigate('/');
-
+          
         }
 
       },
@@ -196,7 +198,6 @@ function LandingPage(props) {
         success: function(data,xhr){
           if(data.dataout !== "None"){
             extract_data = extractCategories(data.dataout, "settings")
-            console.log(extract_data)
             paginate_data = paginateData(extract_data)
             setDataSaved(paginate_data)
           } else{
@@ -217,7 +218,6 @@ function LandingPage(props) {
         cache:false,
         success: function(data,xhr){
           extract_data = extractCategories(data.dataout)
-          console.log(extract_data)
           paginate_data = paginateData(extract_data)
           setDataSaved(paginate_data)
         },
@@ -263,14 +263,12 @@ function LandingPage(props) {
   function getCategory(category){
     let extract_data = null
     let paginate_data = null
-      console.log(category)
       $.ajax({
         url: "http://127.0.0.1:5000/api/category/" + category,
         type: 'GET',
         crossorigin: true,
         cache:false,
         success: function(data,xhr){
-          console.log(data)
           extract_data = extractCategories(data.dataout)
           paginate_data = paginateData(extract_data)
           setDataSaved(paginate_data)
@@ -283,13 +281,10 @@ function LandingPage(props) {
 
   function handleData(value){
     let category = value.name
-    console.log(category)
     if(category !== "Home"){
       getCategory(category)
     } else {
-      console.log("hi")
       cookieLoad()
-      console.log("here")
     }
   }
 
@@ -326,10 +321,10 @@ function LandingPage(props) {
       }
 
     }
-    console.log(pageVis)
+    
   }
 
-  console.log(pageVis)
+  
   return (
     <div className="landing">
         <div className = "header_outer">

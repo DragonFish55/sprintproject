@@ -13,7 +13,7 @@ function NewsReel(props) {
   const [pageData, setPageData] = useState(null)
   let pageMod = null
 
-  console.log(props.page_vis)
+  
 
   return (
     <div className = "pageCont">
