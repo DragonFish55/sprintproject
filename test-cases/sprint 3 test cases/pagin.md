@@ -1,5 +1,5 @@
 # Test Case ID:
-pagin
+pagin_limit
 
 # Description
 Tests that the number of articles displayed on the landing page is sufficient and also has a limit of approximately 250.
