@@ -11,6 +11,10 @@ This is Team Z's Sprint 3 test plan. In sprint 3, with the news feed application
 6. Default API
 7. Update Categories API
 8. Database
+9. Tab Menu
+10. Pagination
+11. Single Category Tab
+12. Home Link Tab
 
 # Features to be Tested
 
@@ -29,17 +33,13 @@ This is Team Z's Sprint 3 test plan. In sprint 3, with the news feed application
 - Non selected choices remove categories from the database on submit if there are any
 - When a user submits the categories they are taken back to the landing page.
 
-3. Customized Home Page News API
-- GET request for the user's preferred articles being returned is 200.
-- GET request for retrieving a 401 when unauthorized user.
-- GET request for returning articles from the descending order with the most recent first is 200.
-- GET request for a limit of approximately 250 articles is 200.
-
-
-5. News Categories REST API
+3. News Categories REST API
 - GET request for retrieving news articles when a user is signed in related to the categories in the user's account. A response code of 200 is returned.
 - GET request for retrieving articles for responding with a string "None" when the user is not signed in. The default api is then queried for the General category news. A response code of 200 is returned.
 - GET request for retrieving a 401 when user does not exist.
+
+3. Single Category API
+- GET request for retrieving news articles for a given category. A response code of 200 is returned.
 
 6. Default API
 - GET request for retrieving articles related to the default configuration for the type of newsapi entry you are requesting.
@@ -54,19 +54,21 @@ This is Team Z's Sprint 3 test plan. In sprint 3, with the news feed application
 - Existing user updates their news category preferences.
 
 # Approach
-The team will use manual tests, test-driven development tests, and unit tests. Appropriate test cases and test results will be documented. For the unit tests including the test-driven development tests the unit tests will be completed using the python unit test package. For test-driven development test cases they are initially added after the previous sprint without adding any extra code and run so they will be meant to fail. Then after adding the new code the test-driven unit tests are run again before committing the code to then test the appropriate feature and obtain correct results. As the tests are run and the code is constructed, the application will slowly be closer to development to what the sprint's goals are.
+The team will use manual tests, test-driven development tests, and unit tests. Appropriate test cases and test results will be documented. For the unit tests including the test-driven development tests the unit tests will be completed using the python unit test package for the backend. For test-driven development test cases they are initially added after the previous sprint without adding any extra code and run so they will be meant to fail. Then after adding the new code the test-driven unit tests are run again before committing the code to then test the appropriate feature and obtain correct results. For the integration tests they are completed manually among frontend features. As the tests are run and the code is constructed, the application will slowly be closer to development to what the sprint's goals are.
 
 # Pass/Fail Criteria
-The software application should function as intended whether a user is signed in or not to the application. A non-signed-in user should be able to view the landing page with general news articles. A signed-in user will be able to navigate the landing page, and according to their news preferences from the settings page (should they have selected any) view related articles. When the settings page form is utilized, the local Postgres database should update with that user's selections and the landing page should reflect that. There should not be any critical bugs affecting these functions. The user session is also persistent as well as the data and a session cookie is added to the user's browser on login. In addition, the server should be able to respond to various types of status codes.
+The software application should function as intended whether a user is signed in or not to the application. A non-signed-in user should be able to view the landing page with general news articles. A signed-in user will be able to navigate the landing page, and according to their news preferences from the settings page (should they have selected any) view related articles. When the settings page form is utilized, the local Postgres database should update with that user's selections and the landing page should reflect that. There should not be any critical bugs affecting these functions. The user session is also persistent as well as the data and a session cookie is added to the user's browser on login. In addition, the server should be able to respond to various types of status codes. 
 
-# Integration Manual Testing Tasks
+# Testing Tasks
+
+## Integration Tests
 
 **1. Sign Into Account Check**
 - Objective: When user signs into their account they are redirected to the landing page where their username is displayed on the header component
 - Completion Criteria: Username is visible on landing page header component after being redirected from login page
 
 **2. Add Categories**
-- Objective: User can select categories to add to their account using the checkboxes and after being redirected to the landing page and then returning to the settings page the categories are still checked. 
+- Objective: User can select categories to add to their account using the checkboxes and after being redirected to the landing page the category news is displayed in the home tab and then after returning to the settings page the categories submitted are still checked. 
 - Completion Criteria: The categories submitted to the update settings api are added to the users account and the getCategoryList function queries the backend api to automatically update the checkboxes.
 
 **3. Remove Categories**
@@ -75,53 +77,60 @@ The software application should function as intended whether a user is signed in
 
 **4. Check Single Category**
 - Objective: User can click on one of the category tabs and that tab becomes highlighted. News article under that category are also displayed with pagination.
-- Completion Criteria: Single category API returns news articles relevant to the news cateogry selected.
+- Completion Criteria: Single category API returns news articles relevant to the news cateogry selected with a maximum of 250 articles however each single category returns 100 articles by default.
 
 **5. Check Multiple Categories**
-- Objective: User with multiple news categories selected in preferences has a list of articles queried on their home page in the most recent order, with up to 250 articles along pagination. Home tab is also selected.
+- Objective: User with multiple news categories selected in preferences has a list of articles queried on their home page in the most recent order, with up to 250 articles along pagination. Home tab is also selected by default.
 - Completion Criteria: Maximum of 250 relevant news category articles are displayed on the landing page in the most recent order.
 
-**5. Sign In Error**
-- Objective: Tests that given an invalid username and/or password on the signin page that an appropriate error message is displayed.
-- Completion Criteria: API response is an error and error message is visible on the signin page.
-
-**7. Pagination**
+**6. Pagination**
 - Objective: User can toggle between sets of articles with pagination.
 - Completion Criteria: Passes if sets of articles are consistent between pages on the landing page.
 
-# Manual Testing Tasks
+## Manual Tests
 
-**1. Category Settings Status 200**
-- Objective: Tests whether the user's preferred news categories are saved into the account.
-- Completion Criteria: API returns 200 response code and correct news articles are shown to the corresponding user account.
+**1. Single Categories returned support pagination 100 articles**
+- Objective: After selecting a category tab and navigating through the article pages each single category has 10 pages of 10 articles or 100 articles in all
+- Completion Criteria: After clicking a category tab and clicking through all the news articke pages their are 10 pages of 10 articles in total 
 
-**2. Category Settings Status 401**
-- Objective: Tests whether a 401 status code and "None" are returned when an invalid username is inputted.
-- Completion Criteria: API returns a 401 response code.
+**2. Settings Categories returned support pagination 250 articles**
+- Objective: After selecting the home tab with at least 3 categories the home tab displays 250 articles maximum across 25 pages rather than 300 arcoss 30
+- Completion Criteria: Home tab has 25 pages maximum of 10 articles displayed
 
-**3. Listed Categories Status 200**
-- Objective: Tests whether a list of all the preferred categories in an account is saved when given a valid username.
-- Completion Criteria: API returns a status of 200 and the list of category preferences is displayed.
-
-**4. Listed Categories Status 401**
-- Objective: Tests whether a a status code of 401 and "None" is returned when an invalid username is inputted.
-- Completion Criteria: API returns a status of 401 with invalid username.
-
-**5. Landing Page General New–Logged In**
+**3. Landing Page General New–Logged In**
 - Objective: Tests whether a new user (or user with no categories selected) only has general news articles displayed and queried.
 - Completion Criteria: Only information displayed on the landing page is news from the newsapi's general category articles.
 
-**6. Landing Page General News–Logged Out**
+**4. Landing Page General News–Logged Out**
 - Objective: Tests whether while no user is logged in that the home page displayed only general news articles.
 - Completion Criteria: While logged out, only information displayed on the landing page is newsapi's general category articles.
 
-**7. Landing Page Navigation Bar**
+**5. Landing Page Navigation Bar**
 - Objective: The landing page has the navigation bar with news categories displayed.
 - Completion Criteria: Each newsapi category in addition to home is visible on the home page. Home is selected initially.
 
-**8. Single Category Status 200**
+
+## API Tests
+
+**1. Single Category Status 200**
 - Objective: Tests whether relevant news articles are returned when a single category is selected.
 - Completion Criteria: API returns a response code of 200 and returns corresponding news category articles.
+
+**2. Category Settings Status 200**
+- Objective: Tests whether the user's preferred news categories are saved into the account.
+- Completion Criteria: API returns 200 response code and correct news articles are shown to the corresponding user account.
+
+**3. Category Settings Status 401**
+- Objective: Tests whether a 401 status code and "None" are returned when an invalid username is inputted.
+- Completion Criteria: API returns a 401 response code.
+
+**4. Listed Categories Status 200**
+- Objective: Tests whether a list of all the preferred categories in an account is saved when given a valid username.
+- Completion Criteria: API returns a status of 200 and the list of category preferences is displayed.
+
+**5. Listed Categories Status 401**
+- Objective: Tests whether a a status code of 401 and "None" is returned when an invalid username is inputted.
+- Completion Criteria: API returns a status of 401 with invalid username.
 
 # Responsibilities
 John: Backend Development and Backend Testing

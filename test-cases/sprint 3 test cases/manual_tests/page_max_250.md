@@ -1,10 +1,10 @@
 # Test Results
 
 # Test Method:
-checkLogin
+N/A
 
 # Test Case ID:
-signin_err
+page_max_250
 
 # Group Member:
 John Paglia
@@ -13,4 +13,4 @@ John Paglia
 Pass
 
 # Comments:
-Username or password invalid and error message is properly displayed
+Testing 3 or more categories shows maximum 250 articles displayed
