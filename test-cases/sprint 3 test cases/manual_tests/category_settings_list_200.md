@@ -2,7 +2,7 @@
 cat_sett_list_200
 
 ### Description:
-Tests that given a valid username the list of all categproes saved in the user's account is returned
+Tests that given a valid username the list of all categories saved in the user's account is returned
 
 ### Test Steps
 - Start the backend flask server
