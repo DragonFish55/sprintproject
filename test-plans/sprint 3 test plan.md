@@ -109,7 +109,7 @@ The software application should function as intended whether a user is signed in
 - Objective: The landing page has the navigation bar with news categories displayed.
 - Completion Criteria: Each newsapi category in addition to home is visible on the home page. Home is selected initially.
 
-**5. Current Tab Highlight**
+**6. Current Tab Highlight**
 - Objective: Tests that when a user selects a tab the tab highlights and category infonation for that tabb is returned
 - Completion Criteria: Newsapi category data is returned and the tab selected is highlighted while the previous tab is no longer highlighted.
 
