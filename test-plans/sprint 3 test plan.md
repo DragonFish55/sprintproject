@@ -61,29 +61,33 @@ The software application should function as intended whether a user is signed in
 
 # Integration Manual Testing Tasks
 
-**1. Sign Into Account**
+**1. Sign Into Account Check**
 - Objective: When user signs into their account they are redirected to the landing page where their username is displayed on the header component
 - Completion Criteria: Username is visible on landing page header component after being redirected from login page
 
 **2. Add Categories**
 - Objective: User can select categories to add to their account using the checkboxes and after being redirected to the landing page and then returning to the settings page the categories are still checked. 
-- Completion Criteria: The categories submitted to the update settings api are added to the users account and the getCategoryList function queries the backend api to automatically update the checkboxes  
+- Completion Criteria: The categories submitted to the update settings api are added to the users account and the getCategoryList function queries the backend api to automatically update the checkboxes.
 
 **3. Remove Categories**
-- Objective: User can unselect categories that were previously added to their account using the checkboxes and after submitting and being redirected to the landing page and then returning to the settings page the categories are no longer checked. 
-- Completion Criteria: The categories unchecked and submitted to the update settings api are removed from the users account and the getCategoryList function queries the backend api to automatically update the checkboxes  
+- Objective: User can unselect news categories that were previously on their account using the checkboxes in the settings form. After submitting and being redirected to the landing page and then returning to the settings page, the categories are no longer checked. 
+- Completion Criteria: The categories unchecked and submitted to the update settings api are removed from the users account and the getCategoryList function queries the backend api to automatically update the checkboxes.
 
-**4. Sign In Error**
-- Objective: Tests that given an invalid username the
-- Completion Criteria:
+**4. Check Single Category**
+- Objective: User can click on one of the category tabs and that tab becomes highlighted. News article under that category are also displayed with pagination.
+- Completion Criteria: Single category API returns news articles relevant to the news cateogry selected.
 
-**5. Pagination**
-- Objective: pagination functions until 250 articles are hit
-- Completion Criteria:
+**5. Check Multiple Categories**
+- Objective: User with multiple news categories selected in preferences has a list of articles queried on their home page in the most recent order, with up to 250 articles along pagination. Home tab is also selected.
+- Completion Criteria: Maximum of 250 relevant news category articles are displayed on the landing page in the most recent order.
 
-**4. Sign In Error**
-- Objective: Tests that given an invalid username the
-- Completion Criteria:
+**5. Sign In Error**
+- Objective: Tests that given an invalid username and/or password on the signin page that an appropriate error message is displayed.
+- Completion Criteria: API response is an error and error message is visible on the signin page.
+
+**7. Pagination**
+- Objective: User can toggle between sets of articles with pagination.
+- Completion Criteria: Passes if sets of articles are consistent between pages on the landing page.
 
 # Manual Testing Tasks
 
