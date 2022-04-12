@@ -2,7 +2,7 @@
 land_tabs
 
 ### Description:
-Tests that after you arrive on the landing page regardless of whether you are logged in or not a navigation bar along with tabs for each category as well as home are displayed. Home is also selected initially.
+Tests that after you arrive on the landing page regardless of whether you are logged in or not a navigation bar along with tabs for each category as well as home are displayed. Home tab is also selected initially.
 
 ### Test Steps 
 - Start api by navigating to 127.0.0.1:3000

@@ -2,7 +2,7 @@
 chk_cat_sng
 
 ### Description:
-Tests that while the user is on the landing page and they click on one of the single category tabs the tabs is highlighted and the page displays news related to that category including pagination
+Tests that while the user is on the landing page and they click on one of the single category tabs the tab is highlighted and the page displays news related to that category including having pagination. This also tests the link between the News data component page and the data sent down through the props parameter on the landing page.
 
 ### Test Steps 
 - Start api by navigating to 127.0.0.1:3000

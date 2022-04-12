@@ -2,7 +2,7 @@
 page_mult
 
 # Description
-Tests whether pagination functions when going forward and backward between pages of articles, with articles changing and matching the pages they were on.
+Tests whether pagination functions when going forward and backward between pages of articles, with articles changing and matching the pages they were on. This tests that each page can keep track of their page visibility by array value sent through props parameter and that each set of data was evenly divided into pages.
 
 # Test Steps
 1. Launch app and navigate to http://127.0.0.1:3000.

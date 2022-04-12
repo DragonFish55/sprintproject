@@ -2,8 +2,8 @@
 chk_cat_sett
 
 ### Description:
-Tests that while the user has multiple categories in their account  and
-while they are on the landing page with the home tab selected the settings category api is queried and displays the most recent news articles across all those categories for up to 250 entries along with pagination.
+Tests that while the user has multiple categories in their account, logged in,  and
+while they are on the landing page with the home tab selected the news settings category api is queried and displays the most recent news articles across all those categories for up to 250 entries along with pagination. This also tests the link between the News data component page and the data sent down through the props parameter on the landing page.
 
 ### Test Steps 
 - Start api by navigating to 127.0.0.1:3000
