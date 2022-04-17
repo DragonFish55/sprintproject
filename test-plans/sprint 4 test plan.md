@@ -72,60 +72,45 @@ The software application should function as intended whether a user is signed in
 # Testing Tasks
 
 ## Regression Tests
+Regression test can be tested manually.
 
 **1. Sign Up**
-- Objective: 
-- Completion Criteria: 
+- Objective: Non-signed in user can create an account.
+- Completion Criteria: Message of successful account creation is displayed and account information is in the database.
 
 **2. Sign In**
-- Objective:
-- Completion Criteria: 
+- Objective: User can sign in with their account.
+- Completion Criteria: User is directed to the landing page upon entering their account credentials.
 
 **3. Set Preferences**
-- Objective: 
-- Completion Criteria: 
+- Objective: Signed in user can navigate to the settings page and select their news cateogry preferences.
+- Completion Criteria: Setting preferences are still present upon submitting category preferences.
 
 **4. Show Merged Articles**
-- Objective: 
-- Completion Criteria: 
+- Objective: Home tab of the landing page shows the selected categorized articles from the user settings.
+- Completion Criteria: User can browse articles on the home tab that are from their preferred categories, in descending order starting with the most recent.
 
 **5. Show Category Articles**
-- Objective: 
-- Completion Criteria: 
+- Objective: Selecting a category on the navigation tab will display articles from that category.
+- Completion Criteria: User (signed in or not) can browse articles from the selected category in descending order starting with the most recent.
 
 **6. Searching**
-- Objective: 
-- Completion Criteria: 
-
-**7. Advanced Searching**
-- Objective:
-- Completion Criteria:
+- Objective: Entering a search request in the searchbox will retrieve articles according to the specified request.
+- Completion Criteria: Articles are returned upon entering a search box request.
 
 ## Manual Tests
 
 **1. Search Box Function**
-- Objective: 
-- Completion Criteria: 
+- Objective: User can use basic function (typing and submitting) of the search box.
+- Completion Criteria: User can type basic search request, submit request, and have appropriate articles returned.
 
 **2. Advanced Search Box Functions**
-- Objective: 
-- Completion Criteria: 
+- Objective: User can use advanced search functions (AND, OR, NOT, parenthesis support) in the search box.
+- Completion Criteria: User submits search request with advanced search functions and have appropriate articles returned.
 
 **3. No Results From Search Message**
-- Objective: 
-- Completion Criteria: 
-
-**4. **
-- Objective: 
-- Completion Criteria: 
-
-**5. **
-- Objective: 
-- Completion Criteria:
-
-**6. **
-- Objective:
-- Completion Criteria:
+- Objective: When no results are applicable to search request, a "No results" message is displayed.
+- Completion Criteria: Message is displayed to the user when no articles are available.
 
 ## API Tests
 
@@ -136,18 +121,6 @@ The software application should function as intended whether a user is signed in
 **2. Search Endpoint 401**
 - Objective: 
 - Completion Criteria: 
-
-**3. **
-- Objective: 
-- Completion Criteria: 
-
-**4. **
-- Objective:
-- Completion Criteria:
-
-**5. **
-- Objective:
-- Completion Criteria:
 
 # Responsibilities
 John: Backend Development and Backend Testing
