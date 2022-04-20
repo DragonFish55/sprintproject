@@ -1,8 +1,6 @@
 # Introduction
 ## Team Z: Harshal Bhole, John Paglia, Megan Resurreccion
-This is Team Z's Sprint 4 test plan. In sprint 4, we add
-
-with the news feed application we created, we customized it with a navigation bar to allow logged in users to select a specific news category to browse news articles. There is now also pagination with the articles. News headlines are obtained from https://newsapi.org. The API will still retrieve the most recent news for each category however now after all of the news is retrieved the articles are sorted based on date and time among all possible articles and then limited to at most 250 articles displayed. The overall focus in this sprint is the use of integration tests.
+This is Team Z's Sprint 4 test plan. In sprint 4, we add a search bar that is able to search articles from the News API Everything endpoint and use advanced search features such as AND, NOT, and OR to filter through articles. This is the main feature that is added to the news application. We also make a few design changes as seen necessary, but otherwise focus on system testing.
 
 # Test Items
 1. Standard Landing Page
@@ -65,6 +63,9 @@ with the news feed application we created, we customized it with a navigation ba
 
 # Approach
 The team will use manual tests, test-driven development tests, unit tests, regression testing, and system testing, with a focus on **regression testing and system testing**. Appropriate test cases and test results will be documented. For the unit tests including the test-driven development tests the unit tests will be completed using the python unit test package for the backend. For test-driven development test cases they are initially added after the previous sprint without adding any extra code and run so they will be meant to fail. Then after adding the new code the test-driven unit tests are run again before committing the code to then test the appropriate feature and obtain correct results. For the integration tests they are completed manually among frontend features. For the regression test, each necessary feature and function will be tested to validate the entire application. As the tests are run and the code is constructed, the application will slowly be closer to development to what the sprint's goals are.
+
+## About Regression Testing and System Testing
+Regression/system testing is the primary focus of this sprint. As the final components of the project are completed, we will conduct regression testing to ensure there are no bugs in the code and ensure everything runs smoothly from the frontend. For testing techniques, we will likely select higher priority test cases (ones more necessary to overall functioning) and modification traversing test cases (ones that are effected by the new commits to the code). We will do testing manually, but the size of the system shouldn't make this too much of a disadvantage. In the end, we may end up selecting all test cases if time permits.
 
 # Pass/Fail Criteria
 The software application should function as intended whether a user is signed in or not to the application. A non-signed-in user should be able to view the landing page with general news articles. A signed-in user will be able to navigate the landing page, and according to their news preferences from the settings page (should they have selected any) view related articles. When the settings page form is utilized, the local Postgres database should update with that user's selections and the landing page should reflect that. There should not be any critical bugs affecting these functions. The user session is also persistent as well as the data and a session cookie is added to the user's browser on login. In addition, the server should be able to respond to various types of status codes. 
