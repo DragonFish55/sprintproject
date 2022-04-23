@@ -12,6 +12,7 @@ function Settings(props){
     const checkb = document.getElementsByClassName("checkb")
     const navigate = useNavigate()
     const [category, setCategory] = useState(props.categories)
+    const [sett_err, SettErr] = useState(null)
 
     useEffect(() => {
         checkCategories()
@@ -21,19 +22,19 @@ function Settings(props){
         let checkclass = document.getElementsByClassName("checkb")
         let i = 0
         for(i = 0; i < checkclass.length; i++){
-            if(checkclass[i].name == "general"){
+            if(checkclass[i].name === "general"){
                 checkclass[i].checked = props.categories.general
-            } else if(checkclass[i].name == "business"){
+            } else if(checkclass[i].name === "business"){
                 checkclass[i].checked = props.categories.business
-            } else if(checkclass[i].name == "sports"){
+            } else if(checkclass[i].name === "sports"){
                 checkclass[i].checked = props.categories.sports
-            } else if(checkclass[i].name == "health"){
+            } else if(checkclass[i].name === "health"){
                 checkclass[i].checked = props.categories.health
-            } else if(checkclass[i].name == "technology"){
+            } else if(checkclass[i].name === "technology"){
                 checkclass[i].checked = props.categories.technology
-            } else if(checkclass[i].name == "entertainment"){
+            } else if(checkclass[i].name === "entertainment"){
                 checkclass[i].checked = props.categories.entertainment
-            } else if(checkclass[i].name == "science"){
+            } else if(checkclass[i].name === "science"){
                 checkclass[i].checked = props.categories.science
             } else {
                 console.log("hi")
@@ -49,49 +50,65 @@ function Settings(props){
         let cookies = document.cookie
         let check = coockiecheck(cookies, "username")
         let user = ""
-        if(check !== ""){
-            user = check
-        } else {
-            if(props.username !== undefined && props.username !== null) {
-                user = props.username
+        let count = 0
+
+        console.log(checkb)
+        for(let i = 0; i < checkb.length; i++){
+            if(checkb[i].checked) {
+                count = count + 1
             }
         }
-        let data_len = 0
-        checklist = parseCheck()
-        let data = {"general":checklist[0], "business":checklist[1],
-                "entertainment":checklist[2], "health":checklist[3],
-                "science":checklist[4], "sports":checklist[5], "technology":checklist[6]};
-        data_len = Object.keys(data).length
-        let keys = Object.keys(data)
-        let values = Object.values(data)
-
-        for(let i = 0; i < data_len; i++){
-            if(i !== data_len-1){
-                querystr = querystr + keys[i] + "=" + values[i] + "&";
-            }else{
-                querystr = querystr + keys[i] + "=" + values[i];
-            }
-        }
-
-        $.ajax({
-            //url: 'https://gentle-island-18820.herokuapp.com/api/signin',
-            url: "http://127.0.0.1:5000/api/new/" + user + "/categories?" + querystr,
-            type: 'GET',
-            crossorigin: true,
-            cache:false,
-            success: function(data,xhr){
-                if(data.dataout === "true") {
-                    navigate('/')
-                    return true
-                } else {
-                    return false
+        
+        if(count > 0) {
+            SettErr(null)
+            if(check !== ""){
+                user = check
+            } else {
+                if(props.username !== undefined && props.username !== null) {
+                    user = props.username
                 }
-            },
-            error: function(request,error){
-            console.log(error);
             }
-        })
+            let data_len = 0
+            checklist = parseCheck()
+            let data = {"general":checklist[0], "business":checklist[1],
+                    "entertainment":checklist[2], "health":checklist[3],
+                    "science":checklist[4], "sports":checklist[5], "technology":checklist[6]};
+            data_len = Object.keys(data).length
+            let keys = Object.keys(data)
+            let values = Object.values(data)
+
+            for(let i = 0; i < data_len; i++){
+                if(i !== data_len-1){
+                    querystr = querystr + keys[i] + "=" + values[i] + "&";
+                }else{
+                    querystr = querystr + keys[i] + "=" + values[i];
+                }
+            }
+
+            $.ajax({
+                //url: 'https://gentle-island-18820.herokuapp.com/api/signin',
+                url: "http://127.0.0.1:5000/api/new/" + user + "/categories?" + querystr,
+                type: 'GET',
+                crossorigin: true,
+                cache:false,
+                success: function(data,xhr){
+                    if(data.dataout === "true") {
+                        navigate('/')
+                        return true
+                    } else {
+                        return false
+                    }
+                },
+                error: function(request,error){
+                console.log(error);
+                }
+            })
+        } else{
+            SettErr(true)
+        }
     };
+
+    
 
 
 
@@ -186,6 +203,12 @@ function Settings(props){
             </div>
 
             <button onClick={updateSettings} id = "checkq">Submit</button>
+            
+            {
+                sett_err !== null && 
+                <div>Error at least one category must be selected to add to account</div>
+            }
+            
         </div>
     )
 
