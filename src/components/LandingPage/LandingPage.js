@@ -325,6 +325,10 @@ function LandingPage(props) {
     })
   }
 
+
+
+  
+
   function checkSearch(){
     let searchText = document.getElementById("searchtext").value
     setSearchErr(null)
@@ -392,6 +396,7 @@ function LandingPage(props) {
               searchErr != null && 
               <label>{searchErr}</label>
             }
+          
           <div id = "reelouter" className = "reelouter">
             {
               

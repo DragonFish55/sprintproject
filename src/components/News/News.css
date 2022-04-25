@@ -25,13 +25,29 @@
 
 .datacat{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
     height: 20%;
     color:black;
     font-size: 1.5rem;
 
     font-weight: bold;
+}
+
+.fav_btn{
+    border-radius: 50%;
+    border: none;
+    width: 25px;
+    height: 25px;
+    background-color: grey;
+}
+
+.fav_btn_div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 .dataentries{
