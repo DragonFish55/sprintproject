@@ -140,4 +140,7 @@ Megan: Test Planning, Frontend Testing
 -------|-------------------
 | 4/14 | Create sprint 4 test plan |
 | 4/17 | Continue drafting sprint 4 test plan |
-
+| 4/23 | Add search function |
+| 4/24 | Begin regression testing |
+| 4/25 | Add favorites function|
+| 4/26 | Finish all testing |
