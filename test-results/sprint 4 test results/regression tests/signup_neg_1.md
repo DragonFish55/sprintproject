@@ -10,7 +10,7 @@ signup_neg
 Megan Resurreccion
 
 ### Pass/Fail
-Pass
+Failed
 
 ### Comments
-Appropriate messages when account creation credentials weren't fulfilled were displayed according to the associated error
+Creation of an account under an existing username didn't result in an error message. Everything else passed.
