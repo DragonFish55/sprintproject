@@ -140,10 +140,10 @@ function SignupPage() {
       success: function(data){
         if(data.data_out === "true"){
           setConfirm("User successfully created");
-        }
+        } 
       },
       error: function(request,error){
-        setConfirm("");
+        setConfirm("Invalid User");
         console.log(error)
       }
     });
