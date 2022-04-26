@@ -7,9 +7,9 @@ Tests that a new user can sign up for an account on the app and that account inf
 ### Test Steps
 - Start up the app (front and back ends)
 - Once on the home page navigate to the Sign In button.
-- Click on the Sign Up button to create an account.
+- Click on the Sign Up button to go to the signup page.
 - Enter a set of credentials for a username and password that meets the app requirements.
-- Once entered, click Sign Up.
+- Once entered, click signup.
 
 ### Pre-requisites
 - Access to the app

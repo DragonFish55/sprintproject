@@ -5,7 +5,9 @@ fav_list_200
 Tests whether the entire favorites list of article details can be retrieved
 
 ### Test Steps
-- 
+- Signup new user
+- Add an article to database
+- Call api to get favorite
 
 ### Pre-requisities
 1.Get Favorites List API
@@ -14,7 +16,7 @@ Tests whether the entire favorites list of article details can be retrieved
 John Paglia
 
 ### Test Method
-N/A
+test_getfavorites_200
 
 ### Pass/Fail Criteria
-Passes if a no error message is displayed and articles are displayed. Otherwise the test fails
+Passes if favorites list is retrieved

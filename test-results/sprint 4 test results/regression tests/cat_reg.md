@@ -1,12 +1,15 @@
 # Test Results
 
 ## Test Method:
+Manual Regression
 
 ## Test Case ID:
-search_res
+cat_reg
 
 ## Group Member:
+John Paglia
 
 ## Pass/Fail:
+Pass
 
 ## Comments:

@@ -1,22 +1,22 @@
 ### Test Case Id: 
-search_200
+fav_submit_401
 
 ### Description:
-Tests that given a search query the search everything api returns data to the user from newsapi 
+Tests whether the entire favorites list of article details can be retrieved
 
 ### Test Steps
-- Start the backend flask server
-- Send a postman request with a valid search query to search everything endpoint
-- If a response is returned either including some or no results then the test succeeds
+- Delete user
+- Call api to try to add an article to database with
+deleted user
 
 ### Pre-requisities
-1. Search everything api 
+1.Submit Favorites API
 
 ### Author
 John Paglia
 
 ### Test Method
-N/A
+test_submitfavorites_401
 
 ### Pass/Fail Criteria
-Passes if given a valid search a status code 200 is returned as well as either some or no data. Otherwise the test fails
+Passes if 401 status code is retrieved

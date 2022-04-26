@@ -2,7 +2,7 @@
 srch_box_land
 
 ### Description:
-Tests that after staring the app and arriving on the landing page a search box is displayed with which you can query the newsapi everything endpoint
+Tests that after starting the app and arriving on the landing page a search box is displayed with which you can query the newsapi everything endpoint
 
 ### Test Steps
 - Start the app on 127.0.0.1

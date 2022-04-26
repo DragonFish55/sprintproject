@@ -99,6 +99,10 @@ Regression test can be tested manually.
 - Objective: Entering a search request in the searchbox will retrieve articles according to the specified request.
 - Completion Criteria: Articles are returned upon entering a search box request.
 
+**6. Advanced Searching**
+- Objective: Entering an advanced search request in the searchbox will retrieve articles according to the specified request.
+- Completion Criteria: Articles are returned upon entering a search box request.
+
 ## Manual Tests
 
 **1. Search Box Function**
@@ -113,15 +117,16 @@ Regression test can be tested manually.
 - Objective: When no results are applicable to search request, a "No results" message is displayed.
 - Completion Criteria: Message is displayed to the user when no articles are available.
 
+**4. Invalid Results Search Box**
+- Objective: When an invalid advanced query is entered an appropriate error message is displayed
+- Completion Criteria: Message is displayed to the user when user enters invalid query
+
 ## API Tests
 
-**1. Search Endpoint 200**
-- Objective:
-- Completion Criteria:
-
-**2. Search Endpoint 401**
-- Objective: 
-- Completion Criteria: 
+**1. Search Everything Endpoint 200**
+- Objective: Test that search api can retrieve articles from 
+the newsapi everything endpoint
+- Completion Criteria: List of search articles retrieved
 
 # Responsibilities
 John: Backend Development and Backend Testing

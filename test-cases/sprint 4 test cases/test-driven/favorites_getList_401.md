@@ -1,21 +1,21 @@
-### Test Case ID
-search_none
+### Test Case Id: 
+fav_list_401
 
-### Description
-Tests whether an appropriate "no results" message is displayed when a search request with no relevant results is submitted in the search bar.
+### Description:
+Tests whether the user is logged in to access the favorites list
 
 ### Test Steps
-- Start up the app.
-- In the search box, type in keywords for articles that may not render results, aka keywords that do not relate to each other such as sports terms with business terms with science terms. Advanced search functions may be used here too. Very specific search requests may be submitted too.
+- Delete user
+- Call api with user that was deleted
 
-### Pre-requisites
-- Access to the app
+### Pre-requisities
+1.Get Favorites List API
 
 ### Author
-Megan Resurreccion
+John Paglia
 
 ### Test Method
-Manual Regression
+test_getfavorites_401
 
 ### Pass/Fail Criteria
-Passes if the "no results" message is displayed upon submitting the search request. The test fails if any articles are displayed when the search request is submitted.
+Passes 401 status code is retrieved

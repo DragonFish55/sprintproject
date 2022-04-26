@@ -1,23 +1,22 @@
 ### Test Case Id: 
-srch_err_nores
+fav_submit_rem
 
 ### Description:
-Tests that given a search query if the search everything api finds no results an error message is displayed that says no results found.
+Tests whether a favorite can be removed from the users account
 
 ### Test Steps
-- Start the app on 127.0.0.1
-- Enter a search query into the search box that will show no results. 
-- If an error message is displayed the test passes
+- Create new user
+- Call api to try to add an article to database for the given user
+- Check whether the article exists and then remove the article from the users account
 
 ### Pre-requisities
-1. Search everything api 
-2. Landing Page
+1.Submit Favorites API
 
 ### Author
 John Paglia
 
 ### Test Method
-N/A
+test_submitfavorites_rem
 
 ### Pass/Fail Criteria
-Passes if a no results error message is displayed. Otherwise the test fails
+Passes if favorite information is removed from the database
