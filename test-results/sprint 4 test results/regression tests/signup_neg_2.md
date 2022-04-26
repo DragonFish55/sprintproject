@@ -13,4 +13,4 @@ Megan Resurreccion
 Pass
 
 ### Comments
-Appropriate messages when account creation credentials weren't fulfilled were displayed according to the associated error
+Duplicate username error message was fixed. Appropriate messages when account creation credentials weren't fulfilled were displayed according to the associated error
