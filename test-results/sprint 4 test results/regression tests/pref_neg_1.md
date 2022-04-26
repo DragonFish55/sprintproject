@@ -4,7 +4,7 @@
 - Manual Regression
 
 ### Test Case ID
-pref_reg
+pref_neg
 
 ### Author
 - John Paglia
@@ -13,3 +13,4 @@ pref_reg
 Pass
 
 ### Comments
+Settings page error message displayed

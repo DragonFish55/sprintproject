@@ -13,3 +13,4 @@ John Paglia
 Pass
 
 ### Comments
+Invalid search query error message displayed
