@@ -37,7 +37,7 @@ function News(props){
         }
 
         let url = "http://127.0.0.1:5000/api/" + endp + "/submitFavorite"
-        console.log(url)
+        
         
         $.ajax({
             url: url,

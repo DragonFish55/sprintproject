@@ -37,7 +37,7 @@ function Settings(props){
             } else if(checkclass[i].name === "science"){
                 checkclass[i].checked = props.categories.science
             } else {
-                console.log("hi")
+                console.log("error")
             }
         }
     }
@@ -52,7 +52,7 @@ function Settings(props){
         let user = ""
         let count = 0
 
-        console.log(checkb)
+        
         for(let i = 0; i < checkb.length; i++){
             if(checkb[i].checked) {
                 count = count + 1

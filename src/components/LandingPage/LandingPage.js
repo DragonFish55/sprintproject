@@ -36,10 +36,8 @@ function LandingPage(props) {
   function cookieLoad(){
     let cookiename = checkCookies()
     if(cookiename !== null){
-      console.log("this")
       checkApi(cookiename)
     } else{
-      console.log("there")
       if(username != null && username != undefined){
         checkApi(username)
       } else{
@@ -56,7 +54,6 @@ function LandingPage(props) {
     if(check !== ""){
       cookie = check
     } else{
-      console.log("hi")
       cookie = null
     }
     return cookie
@@ -86,34 +83,30 @@ function LandingPage(props) {
       }
       
       page_nums = Math.ceil(page_nums)
-      console.log(page_nums)
   
       let x = new Array(page_nums)
-      console.log(x)
       x.fill(0)
       x[0] = 1
       setPageVis(x)
       setCurrPage(0)
 
-
-      console.group(pagesize)
       for(let i = 0; i < data_in.length; i++){
         temp_data.push(data_in[i])
         if(((i+1)%pagesize) == 0 || (i+1) == data_in.length){
           data_mod.push(temp_data)
-          console.log(data_mod)
+          
           temp_data = []
         }
       }
 
-      console.log(data_mod)
+      
       
       return data_mod
 
   }
 
   function extractCategories(categories, type){
-    console.log(categories)
+    
     let category1 = []
     let category2 = []
     let currCategory = ""
@@ -121,7 +114,7 @@ function LandingPage(props) {
     let tempCategory2 = null
     let tempVal1 = null
     let tempVal2 = null
-    console.log(categories.length)
+    
     let title, author,publish, desc, source, image, url = ""
     for(let i=0; i < categories.length; i++){
         currCategory = categories[i][0]
@@ -141,7 +134,7 @@ function LandingPage(props) {
     }
     category2 = category1.slice()
 
-    console.log(category2)
+    
     if(type === "settings"){
       for(let l=0; l < category2.length;l++){
         for(let k = l+1; k < category2.length; k++){
@@ -211,7 +204,7 @@ function LandingPage(props) {
         cache:false,
         success: function(data,xhr){
           if(data.dataout !== "None"){
-            console.log("hi")
+            
             extract_data = extractCategories(data.dataout, "settings")
             paginate_data = paginateData(extract_data)
             setDataSaved(paginate_data)
@@ -232,7 +225,7 @@ function LandingPage(props) {
         crossorigin: true,
         cache:false,
         success: function(data,xhr){
-          console.log("here")
+          
           extract_data = extractCategories(data.dataout)
           paginate_data = paginateData(extract_data)
           setDataSaved(paginate_data)
@@ -264,7 +257,7 @@ function LandingPage(props) {
         crossorigin: true,
         cache:false,
         success: function(data,xhr){
-          console.log("found")
+          
           extract_data = extractCategories(data.dataout)
           paginate_data = paginateData(extract_data)
           setDataSaved(paginate_data)
@@ -294,15 +287,15 @@ function LandingPage(props) {
       crossorigin: true,
       cache:false,
       success: function(data,xhr){
-        console.log(data.dataout)
+        
         
         if("articles" in data.dataout[0][1]) {
-          console.log(data.dataout)
+          
           
           if(data.dataout[0][1].articles.length > 0){
-            console.log("hotthere")
+            
             extract_data = extractCategories(data.dataout, "settings")
-            console.log(extract_data)
+            
             paginate_data = paginateData(extract_data)
             setSearchErr(null)
             setDataSaved(paginate_data)
@@ -311,7 +304,7 @@ function LandingPage(props) {
           }
         } else {
           if("code" in data.dataout[0][1]){
-            console.log("yo")
+            
             setSearchErr("Error: Inalid Search Expression")
             cookieLoad()
           } 
