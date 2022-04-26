@@ -13,3 +13,4 @@ John Paglia
 Pass
 
 ## Comments:
+Articles for each category showed up successfully
