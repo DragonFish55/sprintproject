@@ -2,7 +2,7 @@
 cat_reg
 
 ### Description
-Tests if 
+Tests if articles for specific categories are displayed when the associated category button on the navigation bar is selected.
 
 ### Test Steps
 - Start up the app.
